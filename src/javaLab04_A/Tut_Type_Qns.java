@@ -106,6 +106,14 @@ public class Tut_Type_Qns {
     System.out.println( ) ;
     }
 
+    System.out.println("==============Q6A - ANALYSIS===============");
+    
+    for (int i = 0 ; i < 5 ; i++){
+        for (int j = 0 ; j < i ; j++)
+            System.out.print("j"+j) ;
+    System.out.println("i"+i) ;
+    }    
+    
     System.out.println();
     System.out.println();
 
@@ -116,6 +124,13 @@ public class Tut_Type_Qns {
             System.out.print("*") ;
     System.out.println( ) ;
     }
+    System.out.println("==============Q6B - ANALYSIS===============");
+      
+    for (int i = 0 ; i < 5 ; i++){
+        for (int j = 5 ; j > i ; j--)
+            System.out.print("j"+j) ;
+    System.out.println("i"+i) ;
+    }    
 
     System.out.println();
     System.out.println();
@@ -128,6 +143,14 @@ public class Tut_Type_Qns {
         System.out.println( ) ;
     }
 
+    System.out.println("==============Q6C - ANALYSIS===============");
+      
+    for (int i = 5 ; i > 0 ; i--) {
+        for (int j = 0 ; j < i ; j++)
+            System.out.print("j"+j) ;
+    System.out.println("i"+i) ;
+    }
+    
     System.out.println();
     System.out.println();
     
@@ -139,5 +162,13 @@ public class Tut_Type_Qns {
         System.out.println( ) ;
     }
 
+    System.out.println("==============Q6D - ANALYSIS===============");
+      
+    for (int i = 5 ; i > 0 ; i--){
+        for (int j = 5 ; j >= i ; j--)
+            System.out.print("j"+j) ;
+    System.out.println("i"+i) ;
+    }
+    
   }
 }
