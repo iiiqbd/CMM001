@@ -1,5 +1,7 @@
 package javaLab03;
 
+import javax.swing.JOptionPane;
+
 /*
 [Menu.java] Design and implement a java application that
 (a)displays an input dialog containing a message
@@ -24,7 +26,43 @@ public class Menu {
 
 	public static void main (String [] args) {
 
+    int itemPrice = 0;
+    int number;
+    int totalCost;
+    String itemName = JOptionPane.showInputDialog(
+      "A Chocolate   [75p]\n" +
+			"B Toffee         [60p]\n" +
+			"C Cookie        [90p]");
+    char name = itemName.toUpperCase().charAt(0);
+    String input = JOptionPane.showInputDialog(
+      "How many items do you require");
+    number = Integer.parseInt(input);  
+    
+    switch (name) {
+      case 'A':
+        itemName = "Chocolate";
+        itemPrice = 75;
+        break;
+      case 'B':
+        itemName = "Toffee";
+        itemPrice = 60;
+        break;
+      case 'C':
+        itemName = "Cookie";
+        itemPrice = 90;
+        break;
+      default:  JOptionPane.showMessageDialog(null,
+          "Please enter A, B, or C");
+    }
+        
 
+        
+        totalCost = number * itemPrice;
+        JOptionPane.showMessageDialog(null,
+          "Your order is for " + number
+          + itemName + " and will cost " + totalCost + "p.");
+
+    
 	}
 
 }
