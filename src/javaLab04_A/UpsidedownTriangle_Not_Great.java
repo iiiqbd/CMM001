@@ -17,17 +17,17 @@ import javax.swing.JOptionPane;
  * @author Uche
  */
 
-public class UpsidedownTriangle {
+public class UpsidedownTriangle_Not_Great {
   public static void main (String [] args) {
     String output = "";
     String yourRows = JOptionPane.showInputDialog("Enter number of rows desired");
     int rows = Integer.parseInt(yourRows);
       
-    for (int i = 0; i < rows; i++) {
-      for (int spaces = 0; spaces < 2 * i; spaces++) {
+    for (int i = 0; i < rows; i++) { // compre with perfect pattern
+      for (int spaces = 0; spaces < 2 * i; spaces++) { // compre with perfect pattern
         output += " "; 
       }
-      for (int stars = rows; stars < 2 * (rows - i); stars++) {
+      for (int stars = rows; stars < 2 * (rows - i); stars++) { // compre with perfect pattern
         output += "*";
       }
      output += "\n";

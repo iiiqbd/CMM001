@@ -7,8 +7,8 @@ public class DecreasingDots {
 
 		String output = "";
 		int line = 0;
-		for (line = 1; line <= 5; line++) {
-			for (int dots = 0; dots < (5-line); dots++) {
+		for (line = 1; line <= 6; line++) {
+			for (int dots = 0; dots < (6-line); dots++) {
 				output += "*";
 			}
 			output += "\n";
