@@ -9,7 +9,7 @@ for stylistic reasons. This program can safely handle from 0 up to
 LONG.MAX_VALUE - 9223372036854775807.
 
 Prog 1.3.7 Converting Decimal to Binary
-SEE EXERCISE 1.3.20 (pdf p.92) for compact for loop solution!
+SEE EXERCISE 1.3.20 (pdf p.92) for compact for-loop solution!
 */
 
 import javax.swing.*;
@@ -63,7 +63,7 @@ public class DecimalToBinaryLongForLoop {
 /*
 Write a Java program that obtains a decimal number from the user and
 converts that number to its binary equivalent.
-TRIVIAL, BUT FAULTY SOLN METHODOLOGY BELOW
+VERY FAULTY SOLN METHODOLOGY BELOW
 */
 
 

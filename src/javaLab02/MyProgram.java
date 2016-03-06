@@ -22,7 +22,7 @@ public class MyProgram
     JOptionPane.showMessageDialog(null, "pi = " + pi + "\nde = " + de + "\nnaira = " + naira);
 
     int i = 100; char c = 'a';
-	double x = (double) i;		// double x = i; also works, though may be frowned upon
+	  double x = (double) i;		// double x = i; also works, though may be frowned upon
 
 	JOptionPane.showMessageDialog(null, "x = " + x);
   }

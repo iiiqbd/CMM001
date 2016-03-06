@@ -4,11 +4,10 @@ package javaLab04_A;
 Write a Java program that obtains a decimal number from the user and
 converts that number to its binary equivalent.
 See page 64 (pdf p.76) of Programming in Java (An Interdisciplinary Approach)
-for the following implementation. Note that this has been slightly modified
-for stylistic reasons. This program can safely handle from 0 up to
-Integer.MAX_VALUE - 2147483647.
+for the following implementation (Prog 1.3.7 Converting Decimal to Binary).
+Note that this has been slightly modified for stylistic reasons.
+This program can safely handle from 0 up to Integer.MAX_VALUE - 2147483647.
 
-Prog 1.3.7 Converting Decimal to Binary
 */
 
 import javax.swing.*;
@@ -56,7 +55,7 @@ public class DecimalToBinaryInt {
 /*
 Write a Java program that obtains a decimal number from the user and
 converts that number to its binary equivalent.
-TRIVIAL, BUT FAULTY SOLN METHODOLOGY BELOW
+VERY FAULTY SOLN METHODOLOGY BELOW
 */
 
 

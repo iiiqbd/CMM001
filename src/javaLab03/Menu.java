@@ -54,9 +54,6 @@ public class Menu {
       default:  JOptionPane.showMessageDialog(null,
           "Please enter A, B, or C");
     }
-        
-
-        
         totalCost = number * itemPrice;
         JOptionPane.showMessageDialog(null,
           "Your order is for " + number

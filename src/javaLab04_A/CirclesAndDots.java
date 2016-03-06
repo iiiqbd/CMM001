@@ -26,7 +26,7 @@ public class CirclesAndDots {
       }
       // print 5-i dots per row
      for (int k = 0; k < 5-i; k++) {
-        output += ". ";
+        output += ".  ";
       }
      // print a new line
      output += "\n";

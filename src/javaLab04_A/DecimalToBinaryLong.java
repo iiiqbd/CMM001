@@ -57,7 +57,7 @@ public class DecimalToBinaryLong {
 /*
 Write a Java program that obtains a decimal number from the user and
 converts that number to its binary equivalent.
-TRIVIAL, BUT FAULTY SOLN METHODOLOGY BELOW
+VERY FAULTY SOLN METHODOLOGY BELOW
 */
 
 

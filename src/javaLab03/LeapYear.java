@@ -27,7 +27,7 @@ public class LeapYear {
     String anyYear = JOptionPane.showInputDialog(null, "Enter a year");
     int year = Integer.parseInt(anyYear);
     
-      //  CODE FRAGMENT BELOW FAILS RECOGNIZE 2000 AS A LEAP YEAR
+      //  CODE FRAGMENT BELOW FAILS TO RECOGNIZE 2000 AS A LEAP YEAR
 //    if ((year % 4 == 0) && (year % 100 != 0)) {
 //      JOptionPane.showMessageDialog(null, "Year " + year + " is a Leap Year");
 //    }

@@ -47,7 +47,7 @@ public class IncomeTax {
       JOptionPane.showMessageDialog(null, "Your tax for the year is:\n"
       + "£" + totalTax + "\nYour net income is\n" + "£" + netIncome);
     }
-    else /*if (grossIncome > 160600)*/ {    // if (grossIncome > 160600) unnecessary here
+    else {                  /*if (grossIncome > 160600) unnecessary here */
       taxDue1 = 0.2 * (42385 - 10600);
       taxDue2 = 0.4 * (160600 - 42385);
       taxDue3 = 0.45 * (grossIncome - 160600);
