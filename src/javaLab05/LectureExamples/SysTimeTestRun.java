@@ -19,8 +19,8 @@ public class SysTimeTestRun {
 		}
 		
 		long t2 = System.currentTimeMillis();
-		System.out.println((t2 - t1) + " millisec = ");
-		System.out.print((double)(t2 - t1) / 1000 + " sec");
+		System.out.println("\n" + (t2 - t1) + " millisec = ");
+		System.out.print((double)(t2 - t1) / 1000 + " sec.\n\n");
 		
 	}
 }
