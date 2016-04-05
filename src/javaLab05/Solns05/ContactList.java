@@ -9,7 +9,7 @@ public class ContactList{
     ArrayList<String> numbers = new ArrayList<String>();
     String response="";
     int num;
-    while(JOptionPane.showConfirmDialog(null,"Add a contact?")==0){
+    while(JOptionPane.showConfirmDialog(null,"Add a contact?")==0){ //0,1,2: "yes,no,cancel"
        response=JOptionPane.showInputDialog("Enter contact name");
        names.add(response);
        response=JOptionPane.showInputDialog("Enter contact number");
@@ -21,7 +21,7 @@ public class ContactList{
   static String printList(ArrayList<String> nam, ArrayList<String> num) {
     String output="";
     for (int i=0; i<nam.size(); i++) {
-        output += (i) + " " + nam.get(i) + " " + num.get(i) + "\n"; }
+        output += (i+1) + " " + nam.get(i) + " " + num.get(i) + "\n"; }
     return output;
   }
 }

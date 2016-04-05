@@ -8,8 +8,8 @@ public class ArraysLabQ3ArrayList {
 
     ArrayList<Integer> data = new ArrayList<Integer>();
 
-    for(int i=0; i<5; i++) {
-      int number = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + i + " : "));
+    for(int i=0; i<3; i++) {
+      int number = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + (i+1) + " : "));
       data.add(number);
     }
 

@@ -7,15 +7,15 @@ public class ArraysLabQ3 {
 
     int[] data = new int[5];
 
-    for(int i=0; i<data.length; i++) {
-      data[i] = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + i + " : "));
-    }
-
-    String output="";
-    for(int i=0; i<data.length; i++) {
-      output += data[i] + " ";
-    }
-    JOptionPane.showMessageDialog(null,output);
+//    for(int i=0; i<data.length; i++) {
+//      data[i] = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + i + " : "));
+//    }
+//
+//    String output="";
+//    for(int i=0; i<data.length; i++) {
+//      output += data[i] + " ";
+//    }
+//    JOptionPane.showMessageDialog(null,output);
 
 
     /* to avoid the chance of NumberFormatException runtime errors
@@ -24,7 +24,7 @@ public class ArraysLabQ3 {
 
     for(int i=0; i<data.length; i++) {
       try {
-        data[i] = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + i + " : "));
+        data[i] = Integer.parseInt(JOptionPane.showInputDialog("Please enter integer number " + (i+1) + " : "));
       }
       catch(NumberFormatException e){
         JOptionPane.showMessageDialog(null,"Sorry, that was not a number");

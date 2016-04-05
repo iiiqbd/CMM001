@@ -2,6 +2,7 @@ package javaLab05.Solns05;
 
 import javax.swing.*;
 import java.util.Arrays;
+import java.text.DecimalFormat; // added to format output
 
 public class Random{
   public static void main(String[] args) {
@@ -10,8 +11,10 @@ public class Random{
     double[] data = new double[n];
     double[] datareversed, datasorted;
     double max,min;
+    DecimalFormat to5DP = new DecimalFormat("0.00000");
+    
     for(int i=0; i<data.length; i++) {
-          data[i] = Math.random();
+          data[i] = 10 + Math.random();
     }
 
     /* reverse(), sort(), getMax(), getMin() are helper methods defined below */
@@ -20,13 +23,14 @@ public class Random{
     max = getMax(data);
     min = getMin(data);
 
-    System.out.println("n    data[n]              datareversed[n]        datasorted[n]");
-    System.out.println("-    -------              ---------------        -------------");
+    System.out.println("n\tdata[n]\t\tdatareversed[n]\t\tdatasorted[n]");
+    System.out.println("-\t-------\t\t---------------\t\t-------------");
     for(int i=0; i<n; i++) {
-      System.out.println(i + "    " + data[i] + "   " + datareversed[i] + "   " + datasorted[i]);
+      System.out.println((i+1) + "\t" + to5DP.format(data[i]) + "\t\t"
+          + to5DP.format(datareversed[i]) + "\t\t\t" + to5DP.format(datasorted[i]));
     }
 
-    System.out.println("\nmax = " + max + "   min = " + min);
+    System.out.println("\nmax = " + to5DP.format(max) + "   min = " + to5DP.format(min));
   }// end of main
 
   /* helper method takes original array and returns an array
