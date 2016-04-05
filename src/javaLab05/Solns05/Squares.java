@@ -7,15 +7,15 @@ public class Squares{
     int n = Integer.parseInt(JOptionPane.showInputDialog("Please enter a number"));
     int[] num = new int[n];
     int[] numsq = new int[n];
-    int sum_n=0, sum_nsq=0;
+    int sum_n = 0, sum_nsq =0;
 
-    for(int i=0; i<n; i++) {
-      num[i] = i+1;
-      numsq[i] = num[i]*num[i];
+    for(int i = 0; i < n; i++) {
+      num[i] = i + 1;
+      numsq[i] = num[i] * num[i];
       System.out.println("n = " + num[i] + "   n^2 = " + numsq[i]);
     }
 
-    for(int i=0; i<n; i++) {
+    for(int i = 0; i < n; i++) {
       sum_n += num[i];
       sum_nsq += numsq[i];
     }
