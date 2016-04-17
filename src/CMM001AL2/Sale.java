@@ -4,7 +4,7 @@
  * Purpose: Sale class encapsulating properties of all Sale objects
  */
 
-package cmm001al2;
+package CMM001AL2;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ public class Sale {
   private Fuel fueltype;
   private double litres;
   private boolean discounted;
-  private Cashier staff;
+  private Casshier staff;
   
   // class-level properties
   private static double totalValue = 0.0;
@@ -23,7 +23,7 @@ public class Sale {
   // object and class methods
   
   // constructor
-  public Sale(Fuel ft, double lts, boolean dsc, Cashier stf) {
+  public Sale(Fuel ft, double lts, boolean dsc, Casshier stf) {
     fueltype = ft;
     if(ft.getStock() < litres) {  
       litres = ft.getStock();
@@ -54,7 +54,7 @@ public class Sale {
   }
   
   // getter
-  public Cashier getStaff() {
+  public Casshier getStaff() {
     return staff;
   }
   
@@ -74,7 +74,7 @@ public class Sale {
       + ": "
       + "Volume left: "
       + getLitres()
-      + ", Cashier: "
+      + ", Casshier: "
       + staff.getName()
       + "\n";
   }
@@ -94,7 +94,7 @@ public class Sale {
   
 
   // class-level method
-  public static ArrayList<Sale> byCashier(Cashier cashyr, ArrayList<Sale> sale) {
+  public static ArrayList<Sale> byCasshier(Casshier cashyr, ArrayList<Sale> sale) {
     for (Sale item : sale) {
       if (cashyr.equals(item.getStaff())) {
         sale.add(item);

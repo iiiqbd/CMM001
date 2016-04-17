@@ -1,13 +1,13 @@
-/* Cashier.java
+/* Casshier.java - renamed due to persitent Netbeans duplicate class error.
  * Author: U. Adiele
  * Date: 15 Apr 2016
- * Purpose: Cashier class encapsulating properties of all Cashier objects
+ * Purpose: Casshier class encapsulating properties of all Casshier objects
  */
 
-package cmm001al2;
+package CMM001AL2;
 
 
-public class Cashier {
+public class Casshier {
   
   // object-level properties
   private String name;
@@ -17,7 +17,7 @@ public class Cashier {
   
   
   // constructor
-  public Cashier(String nm, String id) {
+  public Casshier(String nm, String id) {
     name = nm;
     if (id.length() > 4)  {
       ID = id.substring (0, 3);
@@ -45,7 +45,7 @@ public class Cashier {
   
   @Override
   public String toString() {
-      return "Cashier's name: "
+      return "Casshier's name: "
       + getName() + ": "
       + "ID number: " + ID
       + ", Number of sales: "
@@ -65,4 +65,4 @@ public class Cashier {
   }  
   
 
-} // end class Cashier
+} // end class Casshier

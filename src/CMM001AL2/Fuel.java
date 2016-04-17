@@ -4,7 +4,7 @@
  * Purpose: Fuel class encapsulating properties of all Fuel objects
  */
 
-package cmm001al2;
+package CMM001AL2;
 
 
 public class Fuel {

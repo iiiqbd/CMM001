@@ -1,10 +1,10 @@
 /* CMM001AL2.java
  * Author: U. Adiele
  * Date: 15 Apr 2016
- * Purpose: CMM001AL2 class for testing Fuel, Cashier and Sales objects
+ * Purpose: CMM001AL2 class for testing Fuel, Casshier and Sales objects
  */
 
-package cmm001al2;
+package CMM001AL2;
 
 
 public class CMM001AL2 {
