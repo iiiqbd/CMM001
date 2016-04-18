@@ -1,15 +1,15 @@
-/* CMM001AL1.java
+/* CMM001SAL1.java
  * Authors: F. Malik, N. Offorma, U. Egbue, & I. Adiele.
  * Date: 12 April 2016.
  * Purpose: Class for testing the functionality and 
  *   methods of Device, Staff and Sale objects.
  */
-package CMM001AL1;
+package CMM001SAL1;
 
 import javax.swing.JOptionPane;
 
 
-public class CMM001AL1 {
+public class CMM001SAL1 {
 
   public static void main(String[] args) {
     
@@ -220,4 +220,4 @@ public class CMM001AL1 {
     
   } // end main method
 
-} // end class CMM001AL1
+} // end class CMM001SAL1

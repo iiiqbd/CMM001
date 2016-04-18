@@ -48,7 +48,7 @@ public class SmartPhone{
       if(costOfApp< balance ) balance -= costOfApp;
   }
 
-  // Accessor: return balance in the account in Pounds
+  // Accessor: return balance in the account in Pence
   public double getBalancePence() {
       return balance;
   }

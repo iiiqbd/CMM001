@@ -4,7 +4,7 @@
  * Purpose: Device class encapsulating the properties of all Device objects
  *   as defined below.
  */
-package CMM001AL1;
+package CMM001SAL1;
 
 
 public class Device {

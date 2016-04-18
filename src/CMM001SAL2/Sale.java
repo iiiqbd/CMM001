@@ -1,63 +1,64 @@
-/* Sale.java
+/* Sale.java - Sale class encapsulating properties of all Sale objects
  * Author: U. Adiele
  * Date: 15 Apr 2016
- * Purpose: Sale class encapsulating properties of all Sale objects
  */
 
-package CMM001AL2;
+package CMM001SAL2;
 
 import java.util.ArrayList;
 
 public class Sale {
-  
+
   // object-level properties
   private Fuel fueltype;
   private double litres;
   private boolean discounted;
-  private Casshier staff;
-  
+  private Cashier staff;
+
   // class-level properties
   private static double totalValue = 0.0;
   private static int totalNumber = 0;
-  
+
   // object and class methods
-  
+
   // constructor
-  public Sale(Fuel ft, double lts, boolean dsc, Casshier stf) {
+  public Sale(Fuel ft, double lts, boolean dsc, Cashier stf) {
     fueltype = ft;
-    if(ft.getStock() < litres) {  
+
+    if(ft.getStock() < litres) {
       litres = ft.getStock();
     } else {
       litres = lts;
     }
+
     discounted = dsc;
     staff = stf;
     totalNumber++;
-    totalValue += ft.getPrice();    
+    totalValue += ft.getPrice();
   } // end constructor
 
   // other object-level methods
-  
+
   // getter
   public Fuel getFuel() {
     return fueltype;
   }
-  
+
   // getter
   public double getLitres() {
     return litres;
   }
-  
+
   // getter
   public boolean isDiscounted() {
     return discounted;
   }
-  
+
   // getter
-  public Casshier getStaff() {
+  public Cashier getStaff() {
     return staff;
   }
-  
+
   // getter
   public double getCost() {
     if (isDiscounted()) {
@@ -66,7 +67,7 @@ public class Sale {
       return getLitres() * getFuel().getPrice();
     }
   }
-  
+
   // getter - toString method
   @Override
   public String toString() {
@@ -74,27 +75,25 @@ public class Sale {
       + ": "
       + "Volume left: "
       + getLitres()
-      + ", Casshier: "
+      + ", Cashier: "
       + staff.getName()
       + "\n";
   }
-  
+
   // class-level methods
-  
+
   // class-level method
   public static double getTotalValue() {
     return totalValue;
   }
-  
+
     // class-level method
   public static double getTotalNumber() {
     return totalNumber;
   }
-  
-  
 
   // class-level method
-  public static ArrayList<Sale> byCasshier(Casshier cashyr, ArrayList<Sale> sale) {
+  public static ArrayList<Sale> byCashier(Cashier cashyr, ArrayList<Sale> sale) {
     for (Sale item : sale) {
       if (cashyr.equals(item.getStaff())) {
         sale.add(item);
@@ -102,7 +101,7 @@ public class Sale {
     }
     return sale;
   }
-    
+
   // class-level method
   public static ArrayList<Sale> ofFuel(Fuel ftype, ArrayList<Sale> sale1) {
     for (Sale item : sale1) {

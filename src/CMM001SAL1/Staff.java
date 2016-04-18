@@ -4,7 +4,7 @@
  * Purpose: Staff class encapsulating the properties of all Staff objects
  *   as defined below.
  */
-package CMM001AL1;
+package CMM001SAL1;
 
 
 public class Staff {
@@ -61,11 +61,7 @@ public class Staff {
   
   // getter
   public boolean checkID(String check){
-    if (check.equals(ID)) {
-      return true;
-    } else {
-      return false;
-    }
+    return (check.equals(ID));
   }
   
   // setter
