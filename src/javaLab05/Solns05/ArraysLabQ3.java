@@ -31,6 +31,7 @@ public class ArraysLabQ3 {
         i--;
       }
     }
+    // Arrays.sort(data);
     String output2="";
     for(int i=0; i<data.length; i++) {
          output2 += data[i] + " ";

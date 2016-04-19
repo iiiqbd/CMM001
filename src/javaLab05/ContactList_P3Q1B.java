@@ -13,24 +13,24 @@ import java.util.ArrayList;
  */
 
 
-public class ContactList_P1Q1B {
+public class ContactList_P3Q1B {
   public static void main(String[] args) {
-    ArrayList<String> names = new ArrayList<String>();
-    ArrayList<String> numbers = new ArrayList<String>();
-    String response = "";
+    ArrayList<String> names = new ArrayList<>();
+    ArrayList<String> numbers = new ArrayList<>();
+    // String response = "";
     int num;
     while (JOptionPane.showConfirmDialog(null,"Add a contact?") == 0){
-      response = JOptionPane.showInputDialog("Enter contact name");
+      String response = JOptionPane.showInputDialog("Enter contact name");
       names.add(response);
       response = JOptionPane.showInputDialog("Enter contact number");
       numbers.add(response);
     }
     JOptionPane.showMessageDialog(null, printList(names, numbers));
   } // end main
-    static String printList(ArrayList<String > nam, ArrayList<String> num) {
+    static String printList(ArrayList<String > nm, ArrayList<String> num) {
       String output = "";
-      for (int i = 0; i < nam.size(); i++) {
-       output += (i) + " " + nam.get(i) + " " + num.get(i) + "\n";
+      for (int i = 0; i < nm.size(); i++) {
+       output += (i + 1) + " " + nm.get(i) + " " + num.get(i) + "\n";
       }
       return output;
   } // end mthd printList
