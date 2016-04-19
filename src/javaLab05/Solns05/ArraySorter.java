@@ -18,10 +18,9 @@ public class ArraySorter
      Arrays.sort(names);
 
      String output = "";
-     for (int i=0; i<names.length; i++)
-	 {
-	 	 output += (names[i] + "\n");
-     }
+    for (String name : names) {
+      output += (name + "\n");
+    }
      JOptionPane.showMessageDialog(null, "Sorted array elements are is: \n" + output);
 
      String searchname;
