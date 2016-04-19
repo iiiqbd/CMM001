@@ -20,7 +20,7 @@ public class Fuel {
   /* object-level methods - constructor(s), getters and setters  */
 
   // constructor
-  Fuel (String nm, double ppl, double cap, double stk) {
+  Fuel (String nm, double ppl, double stk, double cap) {
 
     name = nm;
 
@@ -30,17 +30,17 @@ public class Fuel {
       pricePerLitre = ppl;
     }
 
-    if (cap < 0.0) {
-      CAPACITY = 0.0;
-    } else {
-      CAPACITY = cap;
-    }
-
     if (stk > cap) {
       stock = cap;
     } else {
       stock = stk;
     }
+
+    if (cap < 0.0) {
+      CAPACITY = 0.0;
+    } else {
+      CAPACITY = cap;
+    }    
 
   } // end constructor
 
@@ -94,8 +94,14 @@ public class Fuel {
   // getter - toString method returns info about Fuel object
   @Override
   public String toString() {
-    return "Fuel name: " + getName() + ", price: " + getPrice()
-        + "stock: " + getStock() + ", tank capacity: " + getCapacity() + ".";
+    return getName() 
+        + ": Stock = " 
+        +  getStock()
+        + " litres; Capacity = "
+        + getCapacity() 
+        + " litres; Price = " 
+        + getPrice() 
+        + " per litre.";
   }
 
   // class-level method

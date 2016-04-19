@@ -30,7 +30,8 @@ public class CMM001SAL1 {
           + "[1] process a sale\n"
           + "[2] Check stock\n"
           + "[3] Add Stock\n"
-          + "[4] Display Sales Of Manager\n"
+          + "[4] Display Sales Of"
+          + currentuser.getName() + "\n"
           + "[5] Cashier log in\n"
           + "[6] Manager log in\n"
           + "[7] Summarise Sales\n\n"
@@ -41,9 +42,9 @@ public class CMM001SAL1 {
       case '1': // process a sale
         int d = Integer.parseInt(JOptionPane.showInputDialog(
             "Please select an item:\n" +
-            "0" + jphn.getName() + "\n" +
-            "1" + jpad.getName() + "\n" +
-            "2" + jbook.getName()));
+            "0 " + jphn.getName() + "\n" +
+            "1 " + jpad.getName() + "\n" +
+            "2 " + jbook.getName()));
         int m = Integer.parseInt(JOptionPane.showInputDialog(
             "Enter the memory required (32, 64, 128 or 256GB:)"));
         switch (d) {
@@ -89,9 +90,9 @@ public class CMM001SAL1 {
         if (currentuser.isManager()) {
           int e = Integer.parseInt (
             JOptionPane.showInputDialog("Please select an item\n" +
-              "0" + jphn.getName() + "\n"+
-              "1" + jpad.getName() + "\n"+
-              "2" + jpad.getName()));
+              "0 " + jphn.getName() + "\n"+
+              "1 " + jpad.getName() + "\n"+
+              "2 " + jpad.getName()));
           
           int n;
           switch (e) {
@@ -214,6 +215,7 @@ public class CMM001SAL1 {
 //</editor-fold>
       default:
         JOptionPane.showMessageDialog(null, "Sorry, choice not recognised.");
+        break;        
       } // end switch (choice)
 
     } while(choice != '0');
