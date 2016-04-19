@@ -80,19 +80,20 @@ public class CMM001SAL2 {
             
             litres = Double.parseDouble(JOptionPane.showInputDialog(
                 "Enter number of litres of " + fuels.get(fuelchoice).getName()));
+
+            if(litres > fuels.get(fuelchoice).getStock()) {
+              JOptionPane.showMessageDialog(null, 
+                  "Amount of "
+                   + fuels.get(fuelchoice).getName()
+                   + " left is " + fuels.get(fuelchoice).getStock()
+                   + " litres."); //  Please enter valid amount.
+              
+            }            
             
             response = JOptionPane.showInputDialog("Apply discount? [Enter 'y' if yes]:").charAt(0);
             d = (response == 'y' || response == 'Y');
             
             Sale sale1 = new Sale(fuels.get(fuelchoice), litres, d, currentcashier);
-            
-            if(litres > fuels.get(fuelchoice).getStock()) {
-              JOptionPane.showMessageDialog(null, 
-                  "Sorry, amount of "
-                   + fuels.get(fuelchoice).getName()
-                   + " left is " + fuels.get(fuelchoice).getStock()
-                   + "litres.");            
-            }
             
             todaySales.add(sale1);
             
@@ -127,6 +128,14 @@ public class CMM001SAL2 {
                   + "2 " + fuels.get(2).getName() + "\n"
             ));
             } while (fuelchoice != 0 && fuelchoice != 1 && fuelchoice != 2);
+            
+            fuels.get(fuelchoice).refill();
+            
+            JOptionPane.showMessageDialog(null,
+              fuels.get(fuelchoice).getName()
+              + " stock refilled to "
+              + fuels.get(fuelchoice).getCapacity()
+              + " litres.");
             
           } catch (NumberFormatException e ) {
               JOptionPane.showMessageDialog(null, "Please enter 0-2");
