@@ -148,18 +148,18 @@ public class CMM001SAL2 {
         case '4':
           ArrayList<Sale> sales = Sale.byCashier(currentcashier, todaySales);
           String output = "";
-          Fuel fuelname;
+          String fuelname;
           double lits;
           double saleValue;
           for(Sale items : sales) {
             lits = items.getLitres();
-            fuelname = items.getFuel();
+            fuelname = items.getFuel().getName();
             saleValue = Sale.getTotalValue();
             
-            output += items.getLitres()
+            output += lits
               + "litres of "
-              + items.getFuel()
-              + Sale.getTotalValue()
+              + fuelname
+              + saleValue
               + "\n";
           }
           JOptionPane.showMessageDialog(null,

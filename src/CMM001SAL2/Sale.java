@@ -37,7 +37,7 @@ public class Sale {
     discounted = dsc;
     staff = stf;
     totalNumber++;
-    totalValue += ft.getPrice();
+    totalValue += this.getCost();
   } // end constructor
 
   // other object-level methods
