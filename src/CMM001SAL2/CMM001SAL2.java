@@ -78,17 +78,21 @@ public class CMM001SAL2 {
             ));
             } while (fuelchoice != 0 && fuelchoice != 1 && fuelchoice != 2);
             
-            litres = Double.parseDouble(JOptionPane.showInputDialog(
-                "Enter number of litres of " + fuels.get(fuelchoice).getName()));
 
-            if(litres > fuels.get(fuelchoice).getStock()) {
-              JOptionPane.showMessageDialog(null, 
-                  "Amount of "
-                   + fuels.get(fuelchoice).getName()
-                   + " left is " + fuels.get(fuelchoice).getStock()
-                   + " litres."); //  Please enter valid amount.
+              do {
+                litres = Double.parseDouble(JOptionPane.showInputDialog(
+                    "Enter number of litres of " + fuels.get(fuelchoice).getName()));
+
+                if(litres > fuels.get(fuelchoice).getStock()) {                
+                  JOptionPane.showMessageDialog(null, 
+                      "Amount of "
+                       + fuels.get(fuelchoice).getName()
+                       + " left is " + fuels.get(fuelchoice).getStock()
+                       + " litres.\nPlease enter a valid fuel volume.");
+                }
+              } while (litres > fuels.get(fuelchoice).getStock());
               
-            }            
+            //}            
             
             response = JOptionPane.showInputDialog("Apply discount? [Enter 'y' if yes]:").charAt(0);
             d = (response == 'y' || response == 'Y');
@@ -143,23 +147,100 @@ public class CMM001SAL2 {
           break;
 
         case '4':
-          
+          JOptionPane.showMessageDialog(null,
+            currentcashier.getName()
+            + "'s fuel sales on current shift:\n"
+            + currentcashier.getNumberSales()
+            + " sales of total value £"
+            + currentcashier.getTakings()
+            + "\n" + Sale.byCashier(currentcashier, todaySales)); // not working!!!!!!!!!!working!
           break;
 
         case '5':
-          
+        String nm = JOptionPane.showInputDialog("Please enter your name:");
+        String s_id = JOptionPane.showInputDialog("Please enter your staff ID:");
+        
+        if(cashiers.contains(currentcashier) && currentcashier.checkID(s_id)) {
+          currentcashier = currentcashier; // verify correctness!
+        } else if(cashiers.contains(currentcashier) && !currentcashier.checkID(s_id)) {
+          JOptionPane.showMessageDialog(null,
+            "Sorry, incorrect ID for cashier "
+            + currentcashier.getName()); 
+        } else {
+          Cashier cashier1 = new Cashier(nm, s_id);
+          cashiers.add(cashier1);
+        }       
           break;
           
         case '6':
-          
+                    try {
+            do {
+              fuelchoice = Integer.parseInt(
+                JOptionPane.showInputDialog(null,
+                  "What type of Fuel is being updated? Enter [0]-[2]:\n"
+                  + "0 " + fuels.get(0).getName() + "\n"
+                  + "1 " + fuels.get(1).getName() + "\n"
+                  + "2 " + fuels.get(2).getName() + "\n"
+            ));
+            } while (fuelchoice != 0 && fuelchoice != 1 && fuelchoice != 2);
+            
+            //fuels.get(fuelchoice).refill();
+            
+            double newPrice = Double.parseDouble(
+              JOptionPane.showInputDialog(null,
+              "New cost of " + fuels.get(fuelchoice).getName()));
+            
+            fuels.get(fuelchoice).setPrice(newPrice);
+            
+          JOptionPane.showMessageDialog(null,
+            "Cost of Petrol now: "
+            + fuels.get(fuelchoice).getPrice());            
+            
+          } catch (NumberFormatException e ) {
+              JOptionPane.showMessageDialog(null, "Please enter 0-2");
+          }
           break;
 
         case '7':
-          
+              String message =  
+                "Summary sales listed by fuel type:\n"
+                + Sale.getTotalNumber() + " sales, totalling "
+                + Sale.getTotalValue();
+              
+              for (Fuel item : fuels) {
+                if (fuels.equals(item.getName())) { // ??
+                  // code here
+                }                
+              }
+              for (Sale sold : todaySales) {
+                if (todaySales.equals(sold.getFuel())) { // ??
+                  // code here
+                }
+              }
+                
+                
+                JOptionPane.showMessageDialog(null, "message");
           break;
 
         case '8':
-          
+              String message2 =  
+                "Summary sales listed by Cashier:\n"
+                + Sale.getTotalNumber() + " sales, totalling "
+                + Sale.getTotalValue();
+              
+              for (Cashier item : cashiers) {
+                if (fuels.equals(item.getName())) { // ??
+                  // code here
+                }                
+              }
+//              for (Sale sold : todaySales) {
+//                if (todaySales.equals(sold.getFuel())) { // ??
+//                  // code here
+//                }
+//              }
+                
+                
+                JOptionPane.showMessageDialog(null, "message2");          
           break;
           
         case '0':
