@@ -182,7 +182,7 @@ public class CMM001SAL2 {
           break;
           
         case '6':
-                    try {
+          try {
             do {
               fuelchoice = Integer.parseInt(
                 JOptionPane.showInputDialog(null,
@@ -192,8 +192,6 @@ public class CMM001SAL2 {
                   + "2 " + fuels.get(2).getName() + "\n"
             ));
             } while (fuelchoice != 0 && fuelchoice != 1 && fuelchoice != 2);
-            
-            //fuels.get(fuelchoice).refill();
             
             double newPrice = Double.parseDouble(
               JOptionPane.showInputDialog(null,
@@ -265,15 +263,6 @@ public class CMM001SAL2 {
 
     
     } while (choice != '0');
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
   } // end main method
 
