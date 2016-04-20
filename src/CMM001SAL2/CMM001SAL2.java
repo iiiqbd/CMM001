@@ -146,13 +146,25 @@ public class CMM001SAL2 {
           break;
 
         case '4':
+          ArrayList<Sale> sales = Sale.byCashier(currentcashier, todaySales);
+          String output = "";
+          Fuel fuelname;
+          double lits;
+          double saleValue;
+          for(Sale items : sales) {
+            lits = items.getLitres();
+            fuelname = items.getFuel();
+            saleValue = Sale.getTotalValue();
+            
+            output += items.getLitres()
+              + "litres of "
+              + items.getFuel()
+              + Sale.getTotalValue()
+              + "\n";
+          }
           JOptionPane.showMessageDialog(null,
-            currentcashier.getName()
-            + "'s fuel sales on current shift:\n"
-            + currentcashier.getNumberSales()
-            + " sales of total value £"
-            + currentcashier.getTakings()
-            + "\n" + Sale.byCashier(currentcashier, todaySales)); // not working!!!!!!!!!!!
+            currentcashier.toString()
+            + "\n" + output);
           break;
 
         case '5':

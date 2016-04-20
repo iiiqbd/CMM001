@@ -6,6 +6,7 @@
 package CMM001SAL2;
 
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class Sale {
 
@@ -18,6 +19,8 @@ public class Sale {
   // class-level properties
   private static double totalValue = 0.0;
   private static int totalNumber = 0;
+  
+  DecimalFormat to2DP = new DecimalFormat("0.00"); // to2DP.format
 
   // object and class methods
 
@@ -72,9 +75,9 @@ public class Sale {
   @Override
   public String toString() {
     return getFuel()
-      + ": "
+      + "SALE-ST: "
       + "Volume left: "
-      + getLitres()
+      + to2DP.format(getLitres())
       + ", Cashier: "
       + staff.getName()
       + "\n";
@@ -94,22 +97,24 @@ public class Sale {
 
   // class-level method
   public static ArrayList<Sale> byCashier(Cashier cashyr, ArrayList<Sale> sale) {
+    ArrayList<Sale> temp = new ArrayList<>();   
     for (Sale item : sale) {
       if (cashyr.equals(item.getStaff())) {
-        sale.add(item);
+        temp.add(item);
       }
     }
-    return sale;
+    return temp;
   }
 
   // class-level method
   public static ArrayList<Sale> ofFuel(Fuel ftype, ArrayList<Sale> sale1) {
+    ArrayList<Sale> temp1 = new ArrayList<>();  
     for (Sale item : sale1) {
       if (ftype.equals(item.getFuel())) {
-        sale1.add(item);
+        temp1.add(item);
       }
     }
-    return sale1;
+    return temp1;
   }
 
 } // end class Sale

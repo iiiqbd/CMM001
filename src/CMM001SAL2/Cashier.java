@@ -5,6 +5,8 @@
 
 package CMM001SAL2;
 
+import java.text.DecimalFormat;
+
 
 public class Cashier {
 
@@ -13,6 +15,8 @@ public class Cashier {
   private String ID;
   private int numberSales;
   private double takings;
+  
+  DecimalFormat to2DP = new DecimalFormat("0.00"); // to2DP.format
 
 
   // constructor
@@ -44,12 +48,12 @@ public class Cashier {
 
   @Override
   public String toString() {
-      return "Cashier's name: "
-      + getName() + ": "
-      + "ID number: " + ID
-      + ", Number of sales: "
-      + getNumberSales()
-      + ". Value of sales: £" + getTakings() + "\n";
+      return this.getName()
+      + "'s fuel sales on on current shift:\n"
+      + this.getNumberSales()
+      + " of total value £"
+      + to2DP.format(this.getTakings())
+      + "\n";
   }
 
   // setter - sales processing method

@@ -5,6 +5,8 @@
 
 package CMM001SAL2;
 
+import java.text.DecimalFormat;
+
 
 public class Fuel {
 
@@ -16,6 +18,7 @@ public class Fuel {
 
   // class-level property/variable
   private static double discount = 0.02;
+  DecimalFormat to2DP = new DecimalFormat("0.00"); // to2DP.format
 
   /* object-level methods - constructor(s), getters and setters  */
 
@@ -95,12 +98,12 @@ public class Fuel {
   @Override
   public String toString() {
     return getName() 
-        + ": Stock = " 
-        +  getStock()
+        + ": FUEL-ST Stock = " 
+        +  to2DP.format(getStock())
         + " litres; Capacity = "
-        + getCapacity() 
+        + to2DP.format(getCapacity())
         + " litres; Price = " 
-        + getPrice() 
+        + to2DP.format(getPrice()) 
         + " per litre.";
   }
 
