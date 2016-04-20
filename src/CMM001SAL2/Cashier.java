@@ -24,6 +24,8 @@ public class Cashier {
     name = nm;
     if (id.length() > 4)  {
       ID = id.substring (0, 3);
+    } else {
+      ID = id;
     }
     numberSales = 0;
     takings = 0.0;

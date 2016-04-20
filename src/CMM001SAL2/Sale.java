@@ -74,13 +74,11 @@ public class Sale {
   // getter - toString method
   @Override
   public String toString() {
-    return getFuel()
-      + "SALE-ST: "
-      + "Volume left: "
-      + to2DP.format(getLitres())
-      + ", Cashier: "
-      + staff.getName()
-      + "\n";
+    return
+    "Summary of sales, listed by Fuel type:\n"
+    + Sale.getTotalNumber()
+    + " sales, totalling "
+    + to2DP.format(Sale.getTotalValue());
   }
 
   // class-level methods
@@ -91,7 +89,7 @@ public class Sale {
   }
 
     // class-level method
-  public static double getTotalNumber() {
+  public static int getTotalNumber() {
     return totalNumber;
   }
 

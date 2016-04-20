@@ -62,7 +62,7 @@ public class CMM001SAL2 {
       switch(choice) {
         
         case '1':
-          int fuelchoice;
+          int fuelchoice = 0;
           double litres;
           boolean d; // determines whether fuel sale is discounted or not
           char response;
@@ -157,8 +157,9 @@ public class CMM001SAL2 {
             saleValue = Sale.getTotalValue();
             
             output += lits
-              + "litres of "
+              + " litres of "
               + fuelname
+              + " £"
               + saleValue
               + "\n";
           }
@@ -171,13 +172,14 @@ public class CMM001SAL2 {
         String nm = JOptionPane.showInputDialog("Please enter your name:");
         String s_id = JOptionPane.showInputDialog("Please enter your staff ID:");
         
-        if (cashiers.contains(currentcashier) && !currentcashier.checkID(s_id)) {
+        if (cashiers.contains(currentcashier) && (!currentcashier.checkID(s_id))) {
           JOptionPane.showMessageDialog(null,
             "Sorry, incorrect ID for cashier "
             + currentcashier.getName());
         } else {
           Cashier cashier1 = new Cashier(nm, s_id);
           cashiers.add(cashier1);
+          currentcashier = cashier1;
         }       
           break;
           
@@ -209,45 +211,33 @@ public class CMM001SAL2 {
           break;
 
         case '7':
-              String message =  
-                "Summary sales listed by fuel type:\n"
-                + Sale.getTotalNumber() + " sales, totalling "
-                + Sale.getTotalValue();
-              
-              for (Fuel item : fuels) {
-                if (fuels.equals(item.getName())) { // ??
-                  // code here
-                }                
-              }
-              for (Sale sold : todaySales) {
-                if (todaySales.equals(sold.getFuel())) { // ??
-                  // code here
-                }
-              }
-                
-                
-                JOptionPane.showMessageDialog(null, "message");
+          //ArrayList<Sale> sales2 = Sale.ofFuel(fuels.???, todaySales); //??????????????????????????????????????????????????????????????????????????????
+          output = "";
+          //fuelname;
+          //lits;
+          //Cashier currentcashier;
+          for(Sale items : sales2) {
+            lits = items.getLitres();
+            fuelname = items.getFuel().getName();
+
+
+            output +=
+                fuelname
+              + ":\n" 
+              + lits
+              + " litres, cashier: "
+              + currentcashier
+              + "\n";
+          }
+          JOptionPane.showMessageDialog(null,
+            currentcashier.toString() //??????????????????????????????????????????????????????????????????????????????
+            + "\n" + output);
+
           break;
 
         case '8':
-              String message2 =  
-                "Summary sales listed by Cashier:\n"
-                + Sale.getTotalNumber() + " sales, totalling "
-                + Sale.getTotalValue();
-              
-              for (Cashier item : cashiers) {
-                if (fuels.equals(item.getName())) { // ??
-                  // code here
-                }                
-              }
-//              for (Sale sold : todaySales) {
-//                if (todaySales.equals(sold.getFuel())) { // ??
-//                  // code here
-//                }
-//              }
-                
-                
-                JOptionPane.showMessageDialog(null, "message2");          
+          // toString() //??????????????????????????????????????????????????????????????????????????????
+          JOptionPane.showMessageDialog(null, "output");          
           break;
           
         case '0':
