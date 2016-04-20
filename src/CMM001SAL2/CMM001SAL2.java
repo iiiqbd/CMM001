@@ -34,9 +34,8 @@ public class CMM001SAL2 {
     Cashier manager = new Cashier("manager", "1234");
     cashiers.add(manager);
     
-    Cashier currentcashier = new Cashier("", "");
-    currentcashier = manager;
-    
+    Cashier currentcashier = manager;
+     
     ArrayList<Sale>todaySales = new ArrayList<>();
     
     // menu system displaying user's options
@@ -153,19 +152,17 @@ public class CMM001SAL2 {
             + currentcashier.getNumberSales()
             + " sales of total value £"
             + currentcashier.getTakings()
-            + "\n" + Sale.byCashier(currentcashier, todaySales)); // not working!!!!!!!!!!working!
+            + "\n" + Sale.byCashier(currentcashier, todaySales)); // not working!!!!!!!!!!!
           break;
 
         case '5':
         String nm = JOptionPane.showInputDialog("Please enter your name:");
         String s_id = JOptionPane.showInputDialog("Please enter your staff ID:");
         
-        if(cashiers.contains(currentcashier) && currentcashier.checkID(s_id)) {
-          currentcashier = currentcashier; // verify correctness!
-        } else if(cashiers.contains(currentcashier) && !currentcashier.checkID(s_id)) {
+        if (cashiers.contains(currentcashier) && !currentcashier.checkID(s_id)) {
           JOptionPane.showMessageDialog(null,
             "Sorry, incorrect ID for cashier "
-            + currentcashier.getName()); 
+            + currentcashier.getName());
         } else {
           Cashier cashier1 = new Cashier(nm, s_id);
           cashiers.add(cashier1);
