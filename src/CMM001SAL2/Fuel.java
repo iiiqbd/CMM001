@@ -95,17 +95,17 @@ public class Fuel {
   }
 
   // getter - toString method returns info about Fuel object
-//  @Override
-//  public String toString() {
-//    return getName() 
-//        + ": FUEL-ST Stock = " 
-//        +  to2DP.format(getStock())
-//        + " litres; Capacity = "
-//        + to2DP.format(getCapacity())
-//        + " litres; Price = " 
-//        + to2DP.format(getPrice()) 
-//        + " per litre.";
-//  }
+  @Override
+  public String toString() {
+    return getName() 
+        + ": = " 
+        +  to2DP.format(getStock())
+        + " litres; Capacity = "
+        + to2DP.format(getCapacity())
+        + " litres; Price = " 
+        + to2DP.format(getPrice()) 
+        + " per litre.";
+  }
 
   // class-level method
   public static double getDiscount() {

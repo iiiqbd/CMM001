@@ -7,6 +7,7 @@ package CMM001SAL2;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
 
 
 public class CMM001SAL2 {
@@ -16,6 +17,7 @@ public class CMM001SAL2 {
    */
   public static void main(String[] args) {
     
+    DecimalFormat to2DP = new DecimalFormat("0.00");
     Fuel petrol = new Fuel("Petrol", 1.145, 32000, 50000);
     Fuel diesel = new Fuel("Diesel", 1.196, 41000, 50000);
     Fuel hydrogen = new Fuel("Hydrogen", 0.528, 15600, 25000);
@@ -148,24 +150,27 @@ public class CMM001SAL2 {
         case '4':
           ArrayList<Sale> sales = Sale.byCashier(currentcashier, todaySales);
           String output = "";
-          String fuelname;
-          double lits;
-          double saleValue;
+          String fuelname = "";
+          double lits = 0.0;
+          double saleValue = 0.0;
           for(Sale items : sales) {
-            lits = items.getLitres();
             fuelname = items.getFuel().getName();
-            saleValue = Sale.getTotalValue();
-            
-            output += lits
+            lits += items.getLitres();          
+            saleValue += items.getCost();
+          }
+              output += lits
               + " litres of "
               + fuelname
               + " £"
-              + saleValue
-              + "\n";
-          }
+              + saleValue;
           JOptionPane.showMessageDialog(null,
-            currentcashier.toString()
-            + "\n" + output);
+            currentcashier.getName()
+            + "'s fuel sales on current shift:\n"
+            + currentcashier.getNumberSales()
+            + " of total value £"
+            + to2DP.format(currentcashier.getTakings())
+            + "\n"
+            + output);
           break;
 
         case '5':
@@ -211,29 +216,33 @@ public class CMM001SAL2 {
           break;
 
         case '7':
-          //ArrayList<Sale> sales2 = Sale.ofFuel(fuels.???, todaySales); //??????????????????????????????????????????????????????????????????????????????
           output = "";
-          for(Sale items : sales2) {
-            lits = items.getLitres();
-            fuelname = items.getFuel().getName();
+          for (int i = 0; i < 3; i++) {
+            ArrayList<Sale> sales2 = Sale.ofFuel(fuels.get(i), todaySales);
 
-
-            output +=
+            for(Sale items : sales2) {
+              lits = items.getLitres();
+              fuelname = items.getFuel().getName();
+              output +=
                 fuelname
-              + ":\n" 
-              + lits
-              + " litres, cashier: "
-              + currentcashier
-              + "\n";
-          }
+                + ":\n"
+                + lits
+                + " litres, cashier: "
+                + currentcashier.getName()
+                + "\n";
+            } // end for-each loop
+          } // end out for-loop
           JOptionPane.showMessageDialog(null,
-            currentcashier.toString() //??????????????????????????????????????????????????????????????????????????????
-            + "\n" + output);
+            "Summary of sales, listed by Fuel type:\n"
+            + Sale.getTotalNumber()
+            + " sales, totalling "
+            + Sale.getTotalValue()
+            + "\n\n" + output);
 
           break;
 
         case '8':
-          // toString() //??????????????????????????????????????????????????????????????????????????????
+          // ???.toString() // Fuel/Cashier class .toString() ?????????
           JOptionPane.showMessageDialog(null, "output");          
           break;
           

@@ -50,11 +50,14 @@ public class Cashier {
 
   @Override
   public String toString() {
-      return this.getName()
-      + "'s fuel sales on current shift:\n"
+      return "Cashier name: " 
+      + this.getName()
+      + "\nID: "
+      + this.ID
+      + "\nNumber of sales: "
       + this.getNumberSales()
-      + " of total value £"
-      + to2DP.format(this.getTakings())
+      + "\nTotal sales: £"
+      + to2DP.format(Sale.getTotalValue())
       + "\n";
   }
 
