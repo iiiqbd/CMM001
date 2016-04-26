@@ -23,13 +23,20 @@ public class Cashier {
   public Cashier(String nm, String id) {
     name = nm;
     if (id.length() > 4)  {
-      ID = id.substring (0, 3);
+      ID = id.substring (0, 4); // off by one error: 0-n rather than 0-(n-1)
     } else {
       ID = id;
     }
     numberSales = 0;
     takings = 0.0;
   } // end constructor
+  
+  public static void main(String [] args) {
+    
+    Cashier c = new Cashier("John", "1234");
+    
+    System.out.print(c);
+  };
 
   // other object-level methods - setters and getters
 
@@ -50,15 +57,25 @@ public class Cashier {
 
   @Override
   public String toString() {
-      return "Cashier name: " 
-      + this.getName()
-      + "\nID: "
-      + this.ID
-      + "\nNumber of sales: "
-      + this.getNumberSales()
-      + "\nTotal sales: £"
-      + to2DP.format(Sale.getTotalValue())
-      + "\n";
+    String message;
+    message = "Cashier name: "
+        + name
+        + "\nID: "
+        + ID
+        + "\nNumber of sales "
+        + numberSales
+        + "\nTotal value of sales =  "
+        + takings;
+//      return "Cashier name: " 
+//      + this.getName()
+//      + "\nID: "
+//      + this.ID
+//      + "\nNumber of sales: "
+//      + this.getNumberSales()
+//      + "\nTotal sales: £"
+//      + to2DP.format(Sale.getTotalValue())
+//      + "\n";
+        return message;
   }
 
   // setter - sales processing method

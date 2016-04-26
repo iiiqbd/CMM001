@@ -158,15 +158,19 @@ ArrayList<Sale>todaysSales = new ArrayList<>();
           double saleValue = 0.0;
           for(Sale items : sales) {
             fuelname = items.getFuel().getName();
-            lits += items.getLitres();          
-            saleValue += items.getCost();
+            lits = items.getLitres();
+            saleValue = items.getCost();
+            
             output += lits
             + " litres of "
             + fuelname
             + " £"
             + saleValue
-            + "\n";
+            + "\n";            
           }
+            
+
+          
           JOptionPane.showMessageDialog(null,
             currentcashier.getName()
             + "'s fuel sales on current shift:\n"
@@ -220,7 +224,11 @@ ArrayList<Sale>todaysSales = new ArrayList<>();
           break;
 
         case '7':
-          output = "";
+          output = "Summary of sales, listed by Fuel type:\n"
+            + Sale.getTotalNumber()
+            + " sales, totalling £"
+            + Sale.getTotalValue()
+            + "\n";
           double litrs = 0.0;
           for (int i = 0; i < 3; i++) {
             ArrayList<Sale> sales2 = Sale.ofFuel(fuels.get(i), todaysSales);
@@ -228,25 +236,26 @@ ArrayList<Sale>todaysSales = new ArrayList<>();
             output += fuelname + ":\n";
 
             for(Sale items : sales2) {
-              litrs += items.getLitres();
+              litrs = items.getLitres();              
             } // end for-each loop
-            output +=
-              litrs
-              + " litres, cashier: "
-              + currentcashier.getName()
-              + "\n";
-            } // end out for-loop
+              output +=
+                litrs
+                + " litres, cashier: "
+                + currentcashier.getName()
+                + "\n";            
+
+          } // end out for-loop
           JOptionPane.showMessageDialog(null,
-            "Summary of sales, listed by Fuel type:\n"
-            + Sale.getTotalNumber()
-            + " sales, totalling £"
-            + Sale.getTotalValue()
-            + "\n\n" + output);
+            output);
 
           break;
 
         case '8':
-          output = "";
+          output = "Summary of sales, listed by Cashier\n"
+            + Sale.getTotalNumber()
+            + " sales, totalling £"
+            + Sale.getTotalValue()
+            + "\n";
           String fuelname2 = "";
           double lits2 = 0.0;
           String cashiername;
@@ -274,11 +283,7 @@ ArrayList<Sale>todaysSales = new ArrayList<>();
           } // end outer for loop
           
           JOptionPane.showMessageDialog(null,
-            "Summary of sales, listed by Cashier\n"
-            + Sale.getTotalNumber()
-            + " sales, totalling £"
-            + Sale.getTotalValue()
-            + "\n\n" + output);          
+            output);          
           break;
           
         case '0':

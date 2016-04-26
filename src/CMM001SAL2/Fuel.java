@@ -6,6 +6,7 @@
 package CMM001SAL2;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 
 public class Fuel {
@@ -14,7 +15,7 @@ public class Fuel {
   private String name;
   private double pricePerLitre;
   private double stock;
-  private double CAPACITY;
+  private final double CAPACITY; // constants are always final
 
   // class-level property/variable
   private static double discount = 0.02;
@@ -33,21 +34,21 @@ public class Fuel {
       pricePerLitre = ppl;
     }
 
-    if (stk > cap) {
-      stock = cap;
-    } else {
-      stock = stk;
-    }
-
     if (cap < 0.0) {
       CAPACITY = 0.0;
     } else {
       CAPACITY = cap;
+    }
+
+    if (stk > CAPACITY) {
+      stock = CAPACITY;
+    } else {
+      stock = stk;
     }    
 
   } // end constructor
 
-
+  
   // setters and getters
 
   // setter - returns name of Fuel object
@@ -97,13 +98,12 @@ public class Fuel {
   // getter - toString method returns info about Fuel object
   @Override
   public String toString() {
-    return getName() 
-        + ": = " 
-        +  to2DP.format(getStock())
-        + " litres; Capacity = "
-        + to2DP.format(getCapacity())
-        + " litres; Price = " 
-        + to2DP.format(getPrice()) 
+    return name // return name
+        + ":\n"
+        + "\nCapacity = "
+        + to2DP.format(stock) // stock
+        + " litres.\nPrice = " 
+        + to2DP.format(pricePerLitre) // pricePerLitre
         + " per litre.";
   }
 
@@ -116,5 +116,22 @@ public class Fuel {
   public static void setDiscount(double disc) {
     discount = disc;
   }
+  
+  // main method to test 
+  public static void main (String [] args) {
+    Fuel f1 = new Fuel("Petrol", 99.9, 33000, 33000);
+    Fuel f2 = new Fuel("Diesel", 102.3, 34000, 40000);
+    //System.out.print(f1);
+    
+    ArrayList<Fuel> fuels = new ArrayList<>();
+    fuels.add(f1);
+    fuels.add(f2);
+    
+    for(Fuel f : fuels) {
+      System.out.print(f);
+    }
+    
+    
+  }  
 
 } // end class Fuel

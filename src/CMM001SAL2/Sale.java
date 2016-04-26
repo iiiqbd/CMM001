@@ -37,7 +37,8 @@ public class Sale {
     discounted = dsc;
     staff = stf;
     totalNumber++;
-    totalValue += this.getCost();
+    totalValue += litres * fueltype.getPrice();
+    // OR totalValue += this.getCost();
   } // end constructor
 
   // other object-level methods
@@ -70,6 +71,11 @@ public class Sale {
       return getLitres() * getFuel().getPrice();
     }
   }
+  
+  // OR without taking acct of the discount 
+//  public double getCost() {
+//    return litres * fueltype.getPrice();
+//  }
 
   // getter - toString method
   @Override
@@ -103,6 +109,17 @@ public class Sale {
     }
     return temp;
   }
+  
+//  public static ArrayList<Sale> byCashier(Cashier cashier, ArrayList<Sale> list) {
+//    ArrayList<Sale> sublist = new ArrayList<>();   
+//    for (Sale s : list) {
+//      if (list.equals(cashier.getStaff())) {
+//        sublistlist.add(s);
+//      }
+//    }
+//    return sublist;
+//  }
+  
 
   // class-level method
   public static ArrayList<Sale> ofFuel(Fuel ftype, ArrayList<Sale> sale1) {
@@ -114,5 +131,16 @@ public class Sale {
     }
     return temp1;
   }
+  
+  
+//  public static ArrayList<Fuel> ofFuel(Fuel fuel, ArrayList<Sale> list) {
+//    ArrayList<Sale> sublist = new ArrayList<>();   
+//    for (Sale s : list) {
+//      if (s.getFuel().equals(fuel)) {
+//        sublist.add(s);
+//      }
+//    }
+//    return sublist;
+//  }  
 
 } // end class Sale
