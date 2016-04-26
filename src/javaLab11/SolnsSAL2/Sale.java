@@ -1,4 +1,4 @@
-package cmm001;
+package javaLab11.SolnsSAL2;
 
 import java.util.ArrayList;
 import java.util.List;

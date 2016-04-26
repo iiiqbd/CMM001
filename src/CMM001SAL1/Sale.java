@@ -60,7 +60,11 @@ public class Sale {
   // getter
   @Override
   public String toString() {
-    String info = "Device name is " + device.getName() + " with memory of  " + getMemory() + "GB";
+    String info =
+        "Device name is " 
+        + device.getName() 
+        + " with memory of  " 
+        + getMemory() + "GB";
     return info;
   }
   

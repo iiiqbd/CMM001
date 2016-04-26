@@ -1,11 +1,11 @@
-package cmm001;
+package javaLab11.SolnsSAL2;
  /** 
  * Class encapsulating properties of fuel sold by a filling station
  * Fuel class for CMM001 2014-15 Semester 2 Assessment
  * Author: David Lonie
  */
 
-public class Fuel{
+public class Fuel {
   // Instance variables
   private String name;            // name of fuel
   private double pricePerLitre;   // cost per litre of fuel in pounds
@@ -28,7 +28,7 @@ public class Fuel{
  * Constraints are that pricePerLitre should be positive, CAPACITY should be positive, and
  * CAPACITY should be greater than or equal to stock 
  */
-  public Fuel(String f, double p, double s, double c){
+  public Fuel(String f, double p, double s, double c) {
        name = f;
        if(p > 0) pricePerLitre = p;
        if(c > 0.0) {CAPACITY = c;}

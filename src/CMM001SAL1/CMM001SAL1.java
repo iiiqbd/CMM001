@@ -23,10 +23,10 @@ public class CMM001SAL1 {
     char choice; // user's choice       
     
     do {
-      String response = JOptionPane.showInputDialog("Current staff Member logged in is: "
+      String response = JOptionPane.showInputDialog(
+          "Current staff Member logged in is: "
           + currentuser.getName()
-          + "\n"
-          + "\nPlease select an option:\n"
+          + "\n\nPlease select an option:\n"
           + "[1] process a sale\n"
           + "[2] Check stock\n"
           + "[3] Add Stock\n"
@@ -199,8 +199,12 @@ public class CMM001SAL1 {
       
       case '0': // system state summary and exit
         if (currentuser.equals(cashier)) {
-        salesRecord += currentuser.getName() + " made " + currentuser.getSalesNumber() + 
-            " sales totalling £" + currentuser.getSalesValue() + "\n";          
+        salesRecord
+            += currentuser.getName()
+            + " made " + currentuser.getSalesNumber()
+            + " sales totalling £"
+            + currentuser.getSalesValue()
+            + "\n";          
         }
         salesRecord +=
             manager.getName() + " made "

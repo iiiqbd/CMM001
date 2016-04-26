@@ -26,10 +26,13 @@ public class Cmm001 {
         devices.add(jPad);
         devices.add(jNetbook);
         
-        String devicelist ="" ; 
+        String devicelist = "" ; 
         for(int i = 0; i < devices.size(); i++){
-            devicelist += i + "  " + devices.get(i).getName() + "\n";
-            System.out.println(devices.get(i).getName() + " " + devices.get(i).checkStock() + " " + devices.get(i).getCost(32));
+            devicelist +=
+              i + "  " + devices.get(i).getName() + "\n";
+            System.out.println(devices.get(i).getName()
+              + " " + devices.get(i).checkStock()
+              + " " + devices.get(i).getCost(32));
         }
        
         // create DecimalFormat object for displaying cash values to nearest £
@@ -37,56 +40,69 @@ public class Cmm001 {
    
         String input; // local variable to hold user responses from menu
         char choice; // local variable on which to base switch cases 
-        int d;
+        int d;  // local variable with which to process sales of device types - my input
 
         Device device;
         String salesRecord = "";
         Staff currentuser = manager;
         
         // create user menu to interact with Order called order
-        do{ String menutext = "Current staff member logged in is: " + currentuser.getName() +
-                "\n\nPlease select an option:\n" +
-                "[1] Process a sale\n" +
-                "[2] Check stock\n" +
-                "[3] Add stock\n" +
-                "[4] Display sales of " + currentuser.getName() + "\n" +
-                "[5] Cashier log in\n" +
-                "[6] Manager log in\n" +
-                "[7] Summarise sales\n\n" +
-                "[0] Exit ";
+        do{ String menutext
+              = "Current staff member logged in is: "
+              + currentuser.getName() +
+              "\n\nPlease select an option:\n" +
+              "[1] Process a sale\n" +
+              "[2] Check stock\n" +
+              "[3] Add stock\n" +
+              "[4] Display sales of "
+              + currentuser.getName()
+              + "\n" +
+              "[5] Cashier log in\n" +
+              "[6] Manager log in\n" +
+              "[7] Summarise sales\n\n" +
+              "[0] Exit ";
             input = JOptionPane.showInputDialog(menutext);
             choice = input.charAt(0);
             
             switch(choice){
                 
-                case '1': {// code for processing a sale
-                    d = Integer.parseInt(JOptionPane.showInputDialog("Please select an item:\n" + devicelist));
+                case '1': { // code for processing a sale
+                    d = Integer.parseInt(JOptionPane.showInputDialog(
+                          "Please select an item:\n" 
+                           + devicelist));
                     try{
                         device = devices.get(d);
                     }
                     catch(Exception e){
                         JOptionPane.showMessageDialog(null, 
-                                "Not a recognised object\n" 
-                                + "Exception message given is: " + e.getMessage());
-                        break;
+                          "Not a recognised object\n" 
+                          + "Exception message given is: "
+                          + e.getMessage());
+                    break;
                     }
                     int m = Integer.parseInt(JOptionPane.showInputDialog(
                             "Enter the memory required (32, 64, 128 or 256 GB):"));
-                    if (m!= 64 && m!=128 && m!=256) m=32;
-                    if(devices.get(d).checkStock()>0){
-                        sale = new Sale(devices.get(d),m); 
+                    if (m != 64 && m != 128 && m != 256) m = 32;
+                    if(devices.get(d).checkStock() > 0){
+                        sale = new Sale(devices.get(d), m); 
                         currentuser.recordSale(sale);
-                        //devices.get(d).sell();
-                        JOptionPane.showMessageDialog(null, devices.get(d).getName() + "  " + m + "GB costing £" + sale.getCost()  );
+                        // devices.get(d).sell(); - verify functionality!!!
+                        JOptionPane.showMessageDialog(null,
+                          devices.get(d).getName()
+                          + "  " + m + "GB costing £"
+                          + sale.getCost()  );
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Sorry insufficient in stock, only " 
-                                + devices.get(d).checkStock() + " in stock");
+                    else {
+                        JOptionPane.showMessageDialog(null,
+                            "Sorry insufficient quantity in stock."
+                             + "\nOnly " 
+                             + devices.get(d).checkStock()
+                             + " in stock");
                     }
                     break;
                 }
                 
-                case '2': {// code for showing stock list
+                case '2': { // code for showing stock list
                     String message = "";
                     for(int i = 0; i < devices.size(); i++){
                         message += devices.get(i).toString() + "\n";
@@ -96,47 +112,58 @@ public class Cmm001 {
                     break;
                 }
              
-                case '3': {// code for adding stock
-                    if(currentuser.isManager()){
-                        d = Integer.parseInt(JOptionPane.showInputDialog("Please select an item:\n" + devicelist));
-                        try{
-                            device = devices.get(d);
-                        }
-                        catch(Exception e){
-                            JOptionPane.showMessageDialog(null, 
-                                    "Not a recognised object\n" 
-                                    + "Exception message given is: " + e.getMessage());
-                            break;
-                        }
-                        int n = Integer.parseInt(JOptionPane.showInputDialog("Please enter the number of " + device.getName() + " added to stock:"));
-                        device.addStock(n);
-                        JOptionPane.showMessageDialog(null, n + " " + device.getName() + " added to stock.\nNow "
-                                + device.checkStock() + " in stock");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Sorry, only managers can add items to stock " );
-                    }
-                    break;
+                case '3': { // code for adding stock
+                  if(currentuser.isManager()){
+                      d = Integer.parseInt(JOptionPane.showInputDialog(
+                            "Please select an item:\n" + devicelist));
+                      try{
+                          device = devices.get(d);
+                      }
+                      catch(Exception e){
+                        JOptionPane.showMessageDialog(null, 
+                          "Not a recognised object\n" 
+                          + "Exception message given is: "
+                          + e.getMessage());
+                      break;
+                      }
+                      int n = Integer.parseInt(JOptionPane.showInputDialog(
+                            "Please enter the number of "
+                              + device.getName()
+                              + " added to stock:"));
+                      device.addStock(n);
+                      JOptionPane.showMessageDialog(null,
+                          n + " " + device.getName()
+                          + " added to stock.\nNow "
+                          + device.checkStock()
+                          + " in stock");
+                  }
+                  else{
+                      JOptionPane.showMessageDialog(null,
+                        "Sorry, only managers can add items to stock " );
+                  }
+                  break;
                 }
                                
                 case '4': { // code for displaying sales of current user
-                    String message = currentuser.getName() + " has sold " 
-                            + currentuser.getSalesNumber() 
-                            + " items sold with total value of " 
-                            + currentuser.getSalesValue();
+                    String message = currentuser.getName()
+                        + " has sold " 
+                        + currentuser.getSalesNumber() 
+                        + " items sold with total value of " 
+                        + currentuser.getSalesValue();
                     JOptionPane.showMessageDialog(null, message );
                     break;
                 } 
                 
                 case '5':{ // code for new Cashier log in
-                    if(currentuser == cashier) salesRecord += cashier.getName()
-                            + " made " + cashier.getSalesNumber() 
-                            + " sales totalling £"
-                            + to2dp.format(cashier.getSalesValue()) + "\n";
+                    if(currentuser == cashier)
+                      salesRecord += cashier.getName()
+                        + " made " + cashier.getSalesNumber() 
+                        + " sales totalling £"
+                        + to2dp.format(cashier.getSalesValue()) + "\n";
                     String name = JOptionPane.showInputDialog(
-                            "Please enter your name: ");
+                        "Please enter your name: ");
                     String id = JOptionPane.showInputDialog(
-                            "Please enter your staff ID:\n");
+                        "Please enter your staff ID:\n");
                     cashier = new Staff(name, id, false);
                     currentuser = cashier;
                 }    
@@ -160,15 +187,15 @@ public class Cmm001 {
                                         
                 case '7': {// code for summarising sales
                     String message = "Store has sold " 
-                            + Sale.getTotalNumber()
-                            + " items sold with total value of " 
-                            + Sale.getTotalValue() + "\n";
+                        + Sale.getTotalNumber()
+                        + " items sold with total value of " 
+                        + Sale.getTotalValue() + "\n";
                     if(currentuser.isManager()){ 
                         message += "Sales record for this sales session:\n"
-                                + salesRecord + "\n"
-                                + manager.getName() + " made " +
-                                + manager.getSalesNumber() + " sales totalling £"
-                                + to2dp.format(manager.getSalesValue());
+                        + salesRecord + "\n"
+                        + manager.getName() + " made " +
+                        + manager.getSalesNumber() + " sales totalling £"
+                        + to2dp.format(manager.getSalesValue());
                     }
                     JOptionPane.showMessageDialog(null, message );
                     break;                    
@@ -176,27 +203,36 @@ public class Cmm001 {
                 }
                
                 case '0': // code executed when leaving the do-while statement
-                    if (currentuser == cashier) salesRecord += cashier.getName()
-                            + cashier.getSalesNumber() + " Sales totalling £"
-                            + to2dp.format(cashier.getSalesValue()); 
+                    if (currentuser == cashier)
+                      salesRecord
+                      += cashier.getName()
+                      + cashier.getSalesNumber()
+                      + " Sales totalling £"
+                      + to2dp.format(cashier.getSalesValue()); 
                                            
-                    salesRecord += manager.getName() + " made "
-                            + manager.getSalesNumber() + " sales totalling £"
-                            + to2dp.format(manager.getSalesValue());
+                    salesRecord
+                      += manager.getName()
+                      + " made "
+                      + manager.getSalesNumber()
+                      + " sales totalling £"
+                      + to2dp.format(manager.getSalesValue());
                     
                     JOptionPane.showMessageDialog(null, 
-                        "Closing Sales Point \n"
-                        + "Have a nice day!\n\n"
-                        + "Summary of sales record for this sales session is:\n"
-                        + salesRecord);
+                      "Closing Sales Point \n"
+                      + "Have a nice day!\n\n"
+                      + "Summary of sales record for this sales session is:\n"
+                      + salesRecord);
                     break;
                     
                 default:
-                {    JOptionPane.showMessageDialog(null,
-                            "Sorry, choice not recognised.");
+                {
+                  JOptionPane.showMessageDialog(null,
+                    "Sorry, choice not recognised.");
                 }
             } // end of switch
+            
         }while(choice!='0');
-    }
+        
+    } // end main method
     
-}
+} // end of class Cmm001
