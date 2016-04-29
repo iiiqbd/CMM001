@@ -27,7 +27,7 @@ public class CMM001SAL1 {
           "Current staff Member logged in is: "
           + currentuser.getName()
           + "\n\nPlease select an option:\n"
-          + "[1] process a sale\n"
+          + "[1] Process a sale\n"
           + "[2] Check stock\n"
           + "[3] Add Stock\n"
           + "[4] Display Sales Of"

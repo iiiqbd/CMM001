@@ -61,6 +61,7 @@ public class Device {
     public int checkStock(){
         return stock;
     }
+    
  /**
  * void object method that removes one item from stock when a Device is sold
  */
@@ -107,8 +108,8 @@ public class Device {
  /**
  * object method that returns a String object summarising the properties of a Device object
  * @return     a String: in the format:  device name, basic cost, number in stock
- *             e.g. Tablet, basic cost �250, 52 in stock
- *                  Laptop, basic cost �600, 12 in stock
+ *             e.g. Tablet, basic cost £250, 52 in stock
+ *                  Laptop, basic cost £600, 12 in stock
  */
     @Override
     public String toString(){

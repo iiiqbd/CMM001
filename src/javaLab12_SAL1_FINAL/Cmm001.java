@@ -26,10 +26,13 @@ public class Cmm001 {
         devices.add(jPad);
         devices.add(jNetbook);
 
-        String devicelist ="" ;
+        String devicelist = "";
         for(int i = 0; i < devices.size(); i++){
-            devicelist += i + "  " + devices.get(i).getName() + "\n";
-            System.out.println(devices.get(i).getName() + " " + devices.get(i).checkStock() + " " + devices.get(i).getCost(32));
+            devicelist += i + "  "
+              + devices.get(i).getName() + "\n";
+            System.out.println(devices.get(i).getName()
+              + " " + devices.get(i).checkStock() 
+              + " " + devices.get(i).getCost(32));
         }
 
         // create DecimalFormat object for displaying cash values to nearest £
@@ -131,7 +134,7 @@ public class Cmm001 {
                 case '5':{ // code for new Cashier log in
                     if(currentuser == cashier) salesRecord += cashier.getName()
                             + " made " + cashier.getSalesNumber()
-                            + " sales totalling �"
+                            + " sales totalling £"
                             + to2dp.format(cashier.getSalesValue()) + "\n";
                     String name = JOptionPane.showInputDialog(
                             "Please enter your name: ");
@@ -148,7 +151,7 @@ public class Cmm001 {
                     if(manager.checkID(checkmanagerid)){
                         if(currentuser == cashier) salesRecord += cashier.getName()
                             + " made " + cashier.getSalesNumber()
-                            + " sales totalling �"
+                            + " sales totalling £"
                             + to2dp.format(cashier.getSalesValue()) + "\n";
                         currentuser = manager;
                     }
@@ -167,7 +170,7 @@ public class Cmm001 {
                         message += "Sales record for this sales session:\n"
                                 + salesRecord + "\n"
                                 + manager.getName() + " made " +
-                                + manager.getSalesNumber() + " sales totalling �"
+                                + manager.getSalesNumber() + " sales totalling £"
                                 + to2dp.format(manager.getSalesValue());
                     }
                     JOptionPane.showMessageDialog(null, message );
@@ -177,11 +180,11 @@ public class Cmm001 {
 
                 case '0': // code executed when leaving the do-while statement
                     if (currentuser == cashier) salesRecord += cashier.getName()
-                            + cashier.getSalesNumber() + " Sales totalling �"
+                            + cashier.getSalesNumber() + " Sales totalling £"
                             + to2dp.format(cashier.getSalesValue());
 
                     salesRecord += manager.getName() + " made "
-                            + manager.getSalesNumber() + " sales totalling �"
+                            + manager.getSalesNumber() + " sales totalling £"
                             + to2dp.format(manager.getSalesValue());
 
                     JOptionPane.showMessageDialog(null,

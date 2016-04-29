@@ -10,7 +10,7 @@ package CMM001SAL1;
 public class Device {
   
   // object-level properties
-  private String NAME;
+  private String NAME; // final!
   private double basicCost;
   private int stock;
   
@@ -48,22 +48,22 @@ public class Device {
   }
   
   // setter - increases stock level
-  public void addStock(int plusSc) {
-    stock+=plusSc;
+  public void addStock(int stockPlus) {
+    stock += stockPlus;
   }
   
   // getter - returns total cost of each device
   public double getCost(int mem) {
-   double total;
+   double total = basicCost;
     switch (mem) {
       case 64:
-        total = basicCost + cost64GB;
+        total += cost64GB;
         break;
       case 128:
-        total = basicCost + cost128GB;
+        total += cost128GB;
         break;
       case 256:
-        total = basicCost + cost256GB;
+        total += cost256GB;
         break;
       default:
         total = basicCost;
