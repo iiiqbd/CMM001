@@ -14,7 +14,7 @@ public class Cmm001 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Staff cashier = null;
+        Staff cashier = null; // possible null-pointer error generator!
         Staff manager = new Staff("Manager","1234",true);
 
         Sale sale;
@@ -47,7 +47,8 @@ public class Cmm001 {
         Staff currentuser = manager;
 
         // create user menu to interact with Order called order
-        do{ String menutext = "Current staff member logged in is: " + currentuser.getName() +
+        do{ String menutext = "Current staff member logged in is: "
+                + currentuser.getName() +
                 "\n\nPlease select an option:\n" +
                 "[1] Process a sale\n" +
                 "[2] Check stock\n" +
@@ -63,28 +64,33 @@ public class Cmm001 {
             switch(choice){
 
                 case '1': {// code for processing a sale
-                    d = Integer.parseInt(JOptionPane.showInputDialog("Please select an item:\n" + devicelist));
+                    d = Integer.parseInt(JOptionPane.showInputDialog(
+                      "Please select an item:\n" + devicelist));
                     try{
                         device = devices.get(d);
                     }
                     catch(Exception e){
                         JOptionPane.showMessageDialog(null,
                                 "Not a recognised object\n"
-                                + "Exception message given is: " + e.getMessage());
+                                + "Exception message given is: " 
+                                + e.getMessage());
                         break;
                     }
                     int m = Integer.parseInt(JOptionPane.showInputDialog(
                             "Enter the memory required (32, 64, 128 or 256 GB):"));
                     if (m!= 64 && m!=128 && m!=256) m=32;
-                    if(devices.get(d).checkStock()>0){
+                    if(devices.get(d).checkStock() > 0){
                         sale = new Sale(devices.get(d),m);
                         currentuser.recordSale(sale);
-                        //devices.get(d).sell();
-                        JOptionPane.showMessageDialog(null, devices.get(d).getName() + "  " + m + "GB costing £" + sale.getCost()  );
+                        //devices.get(d).sell();              // why is this not used?
+                        JOptionPane.showMessageDialog(null,
+                          devices.get(d).getName() + "  " + m
+                            + "GB costing £" + sale.getCost()  );
                     }
                     else{
-                        JOptionPane.showMessageDialog(null, "Sorry insufficient in stock, only "
-                                + devices.get(d).checkStock() + " in stock");
+                        JOptionPane.showMessageDialog(null,
+                          "Sorry insufficient in stock, only "
+                           + devices.get(d).checkStock() + " in stock");
                     }
                     break;
                 }
@@ -101,7 +107,8 @@ public class Cmm001 {
 
                 case '3': {// code for adding stock
                     if(currentuser.isManager()){
-                        d = Integer.parseInt(JOptionPane.showInputDialog("Please select an item:\n" + devicelist));
+                        d = Integer.parseInt(JOptionPane.showInputDialog(
+                          "Please select an item:\n" + devicelist));
                         try{
                             device = devices.get(d);
                         }
@@ -111,13 +118,17 @@ public class Cmm001 {
                                     + "Exception message given is: " + e.getMessage());
                             break;
                         }
-                        int n = Integer.parseInt(JOptionPane.showInputDialog("Please enter the number of " + device.getName() + " added to stock:"));
+                        int n = Integer.parseInt(JOptionPane.showInputDialog(
+                          "Please enter the number of " + 
+                            device.getName() + " added to stock:"));
                         device.addStock(n);
-                        JOptionPane.showMessageDialog(null, n + " " + device.getName() + " added to stock.\nNow "
+                        JOptionPane.showMessageDialog(null, n + " " 
+                          + device.getName() + " added to stock.\nNow "
                                 + device.checkStock() + " in stock");
                     }
                     else{
-                        JOptionPane.showMessageDialog(null, "Sorry, only managers can add items to stock " );
+                        JOptionPane.showMessageDialog(null,
+                          "Sorry, only managers can add items to stock " );
                     }
                     break;
                 }
