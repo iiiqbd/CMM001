@@ -32,9 +32,10 @@ public class Cmm001 {
         fuels.add(petrol);
         fuels.add(diesel);
         fuels.add(hydrogen);
-        Fuel currentfuel;
+        Fuel currentfuel; // ? is this for - only occurs here
 
-        String fuellist ="" ;
+        String fuellist = "" ;
+        // can we possibly ask the user to enter 1-3 and process it as 0-2?
         for(int i = 0; i < fuels.size(); i++){
             fuellist += i + "  " + fuels.get(i).getName() + "\n";
         }
@@ -50,7 +51,7 @@ public class Cmm001 {
         String input; // local variable to hold user responses from menu
         char choice; // local variable on which to base switch cases
 
-    // create user menu to interact with Order called order
+    // create user menu to interact with Order called order (?)
         do{ String menutext = "Cashier logged in is: "
                 + currentcashier.getName()
                 + "\n\nPlease select an option [1]-[8] or [0] to exit:\n\n"
@@ -75,25 +76,25 @@ public class Cmm001 {
                                 "What type of Fuel? Enter [0]-[2]:\n" + fuellist));
                     }while(fuelchoice < 0 || fuelchoice >= fuels.size());
                     Fuel fuel = fuels.get(fuelchoice);
-                    double l = Double.parseDouble(JOptionPane.showInputDialog(
+                    double ltrs = Double.parseDouble(JOptionPane.showInputDialog(
                             "Enter number of litres of " + fuel.getName()));
                     boolean d = JOptionPane.showInputDialog(
                             "Apply discount? [Enter y if yes]:").equals("y");
-                    Sale sale = new Sale(fuel, l, d, currentcashier);
-                    if(fuel.getStock()<l){
+                    Sale sale = new Sale(fuel, ltrs, d, currentcashier);
+                    if(fuel.getStock() < ltrs){
                         JOptionPane.showMessageDialog(null, "Sorry insufficient "
                                 + fuel.getName() + " in stock, only "
                                 + sale.getLitres() + " available");
                     }
                     todaysSales.add(sale);
                     currentcashier.processSale(sale);
-                    fuel.pumpFuel(l);
+                    fuel.pumpFuel(ltrs);
 
                     JOptionPane.showMessageDialog(null, sale.getLitres()
                             + " litres of " + fuel.getName()
                             + " £" + to2dp.format(sale.getCost())  );
                     break;
-                }
+                } //end case 1
 
                 case '2': {// code for checking fuel stocks
                     String message = "";
@@ -103,7 +104,7 @@ public class Cmm001 {
                     }
                     JOptionPane.showMessageDialog(null, message);
                     break;
-                }
+                } //end case 2
 
                 case '3': { // code for adding fuel to storage tank
                     int fuelchoice;
@@ -119,7 +120,7 @@ public class Cmm001 {
                             + " stock refilled to "
                             + fuel.getCAPACITY() + " litres");
                     break;
-                }
+                } //end case 3
 
                 case '4': { // code for displaying fuel sales of current cashier
                     String message = currentcashier.getName()
@@ -136,7 +137,7 @@ public class Cmm001 {
                     System.out.println(message);
                     JOptionPane.showMessageDialog(null, message );
                     break;
-                }
+                } //end case 4
 
                 case '5':{ // code for new Cashier log in
                     String name = JOptionPane.showInputDialog(
@@ -154,14 +155,14 @@ public class Cmm001 {
                                     "Sorry, incorrect id for cashier "
                                     + c.getName());
                             break;
-                        }
-                    }
+                        } // end outer if
+                    } //end for loop
                     if(isNew){
                         Cashier newCashier = new Cashier(name, id);
                         cashiers.add(newCashier);
                         currentcashier = newCashier;
                     }
-                }
+                } //end case 5
                 break;
 
                 case '6':{ // code for updating fuel prices
@@ -179,7 +180,7 @@ public class Cmm001 {
                     JOptionPane.showMessageDialog(null, "Cost of "
                             + fuel.getName()  + " now £"
                             + fuel.getPrice());
-                }
+                } //end case 6
                 break;
 
                 case '7': {// code for summarising sales by fuel type
@@ -197,7 +198,7 @@ public class Cmm001 {
                     System.out.println(message);
                     JOptionPane.showMessageDialog(null, message);
                     break;
-                }
+                } //end case 7
 
                 case '8': {// code for summarising sales by cashier
                     String message = "Summary of sales, listed by Cashier\n";
@@ -216,14 +217,14 @@ public class Cmm001 {
                     System.out.println(message);
                     JOptionPane.showMessageDialog(null, message);
                     break;
-                }
+                } //end case 8
 
                 case '0': // code executed when leaving the do-while statement
                 {   String message = "Closing Sales Point \n"
                         + "Have a nice day!";
                     JOptionPane.showMessageDialog(null, message);
                     break;
-                }
+                } //end case 0
 
                 default:
                 {    JOptionPane.showMessageDialog(null,
@@ -233,10 +234,11 @@ public class Cmm001 {
         }while(choice!='0');
     }
 
+    // helper method?
     private static String printSales(ArrayList<Sale> in){
         String out = "";
         for(Sale s: in){
-            out+=s.toString() + "\n";
+            out += s.toString() + "\n";
             System.out.println(s.toString());
         }
         return out;
