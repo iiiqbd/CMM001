@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Ingredients {
     
-    // object-level properties of pizza Base object
+    // object-level properties of pizza Ingredients object
     ArrayList<Topping> ingredients;
     String description;
     
