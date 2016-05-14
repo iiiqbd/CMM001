@@ -119,7 +119,7 @@ public class Ingredients {
  *              and applying getName to Topping object
  */
     public String listToppings(){
-        String m = " [";
+        String m = "[";
         for(Topping t: ingredients){
             m += t.getName() + ", ";
         }
