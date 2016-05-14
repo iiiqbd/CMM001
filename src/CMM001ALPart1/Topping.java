@@ -2,6 +2,7 @@ package CMM001ALPart1;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  * @author David
@@ -114,20 +115,21 @@ public class Topping {
  * @return     a String of vegetarian with one line per Topping object in the list
  *              presented in format [0] name £0.75 etc
  */
+
     public static String menu(ArrayList<Topping> list){
-        String m = "";
+       String m = "";
         DecimalFormat dp = new DecimalFormat("0.00");
         for(int i = 0; i < list.size(); i++){
             m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost());
             //m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost()) + "" - original stmt; 
         }
         return m;
-    }
-
+   }
+  
     /**
   * class-level main method containing some simple test code
   */
-    public static void main(String[] args){
+ /*   public static void main(String[] args){
         Topping t1 = new Topping("Ham", false);
         Topping t2 = new Topping("Cheese", true); 
         Topping t3 = new Topping("Pepper", true); 
@@ -143,6 +145,10 @@ public class Topping {
         testList.add(t1); testList.add(t2); testList.add(t3); testList.add(t4);
         System.out.println(Topping.menu(testList));
        
+        
+       
+     
+        
     }
-    
+    */
 }

@@ -100,7 +100,7 @@ public class Pizza {
  */   
     public double getPrice(){
         double c = Base.getCost() + toppings.getPrice();
-        if(SIZE != 7){//not checking for less than 7
+        if(SIZE != 7){//not checking for less than 7- refer
           c = c*SIZE/7.0;
         }
         
