@@ -122,15 +122,25 @@ public class Pizza {
  * @return     a String formed by applying relevant methods to the 
  * object properties of the pizza
  */
-    @Override
+//    @Override
+//    public String toString(){
+//        String message = SIZE + " inch " + toppings.getDescription() + ":\n";
+//        message += base.toString();
+//        message +=  toppings.listToppings();
+//        message += " £" + getPrice();
+//        return message;
+//    }
+
+        @Override
     public String toString(){
-        String message = SIZE + " inch " + toppings.getDescription() + ":\n";
+        String message = SIZE + " inch \n";
         message += base.toString();
-        message +=  toppings.listToppings();
-        message += " £" + getPrice();
+        //message +=  toppings.listToppings();
+        //message += " £" + getPrice();
         return message;
     }
 
+    
    /**
   * class-level main method containing some simple test code
   */

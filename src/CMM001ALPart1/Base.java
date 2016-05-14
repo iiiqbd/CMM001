@@ -33,7 +33,7 @@ public class Base {
  */
     public Base(String t, boolean c){
         if(t.toLowerCase().equals("thick")) {
-          TYPE = "thin"; // refer (should read "thick")
+          TYPE = "thick"; // refer (should read "thick")
         }
         else {
           TYPE = "thin";
