@@ -106,7 +106,7 @@ public class Ingredients {
  * @return     a double calculated by summing cost of all toppings in ingredients
  */
     public double getPrice(){
-        double c = 0;
+        double c = 0.0;
         for(Topping t: ingredients){
             c += t.getCost();
         }
@@ -124,8 +124,8 @@ public class Ingredients {
             m += t.getName() + ", ";
         }
         m += "\b\b]"; // \b - backspace
-        /* the 2 backspace keys remove the ',' and 'space' characters from 
-        the the end of the list thus leaving a neat output:
+        /* the 2 backspace escape xtrs remove the ',' and 'space' characters 
+        from the the end of the list thus leaving a neat output:
         so in place of [Ham, Olives, Pepperoni, ] - without backspaces
         we get         [Ham, Olives, Pepperoni] - with backspaces */
         
@@ -138,14 +138,24 @@ public class Ingredients {
  * @return     a String formed from the description property of the Ingredients 
  *              object, then adding a line per Topping in the ingredients list
  */
+//    @Override
+//    public String toString(){
+//        String m = description;
+//        for(int i = 0; i < ingredients.size(); i++){
+//            m += "\n[" + i + "] " + ingredients.get(i).getName();
+//        }
+//        return m;
+//    }
+    
     @Override
     public String toString(){
         String m = description;
-        for(int i = 0; i < ingredients.size(); i++){
-            m += "\n[" + i + "] " + ingredients.get(i).getName();
+        for (Topping item : ingredients) {
+          m += "\n[" + (ingredients.indexOf(item) + 1) + "] " + item.getName();
         }
         return m;
     }
+    
     
    /**
  * a class-level method that filters a set of Toppings and returns 
@@ -169,7 +179,8 @@ public class Ingredients {
     public static void main(String[] args){
         Ingredients all = new Ingredients("Available Ingredients:");
         
-        //System.out.println(all);
+        System.out.println(all
+          + "This list is empty - as \"all\" contains nothing for now\n");
         
         all.addIngredient(new Topping("Ham",false));
         all.addIngredient(new Topping("Olives",true));
@@ -182,9 +193,9 @@ public class Ingredients {
         System.out.println(veg);
         
         // testing toString and listToppings methods
-        System.out.println("\nList of all toppings in straight line (testing backspace functionality!)");
+        System.out.println("List of all toppings in straight line (testing backspace functionality!)");
         System.out.println(all.listToppings());
-        System.out.println("\nList of all toppings in multi-line format");
+        System.out.println("List of all toppings in multi-line format");
         System.out.println(all.toString());
     }
 }

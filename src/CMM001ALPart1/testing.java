@@ -22,17 +22,17 @@ public class testing {
         Topping onions= new Topping("onions", true, 30.3);
         Topping pork = new Topping("pork", false, 15.5);
         //creating an empty arraylist to contain all the topping objects created
-        ArrayList<Topping> collect = new ArrayList<>();
+        ArrayList<Topping> allToppings = new ArrayList<>();
         //Adding the objects into the arraylist
-        collect.add(tomato);
-        collect.add(ham);
-        collect.add(chicken);
-        collect.add(pepper);
-        collect.add(onions);
-        collect.add(pork);
+        allToppings.add(tomato);
+        allToppings.add(ham);
+        allToppings.add(chicken);
+        allToppings.add(pepper);
+        allToppings.add(onions);
+        allToppings.add(pork);
         //Trying to create an arraylist of pizza objects to record all pizza sales
             ArrayList<Pizza> plist = new ArrayList<>();
-        //creating a meanu for the user to select an activity
+        //creating a meanu for the user to select an option
         char c;
         do{
         String ans = JOptionPane.showInputDialog("Choose a Number\n"
@@ -44,21 +44,18 @@ public class testing {
           + "\n[0] To Exit" 
         );
         //pick the number from the answer the person enters
-        c=ans.charAt(0);
+        c = ans.charAt(0);
         switch (c){
           case '5':{
             String x="";
-            for (Topping t : collect){
-             x+=collect.indexOf(t)+ t.getName()+ t.getCost() +"\n";
+            for (Topping t : allToppings){
+             x+=allToppings.indexOf(t)+ t.getName()+ t.getCost() +"\n";
              
             }
             JOptionPane.showMessageDialog(null, x);
           break;
           }
-          case '0':{
-              JOptionPane.showMessageDialog(null, "Goodbye");
-          break;
-          }
+
           
 //<editor-fold defaultstate="collapsed" desc="Case 2 code">
           case '2':{
@@ -110,10 +107,13 @@ public class testing {
           break;
           }
             
-           
-          }
+          case '0':{
+            JOptionPane.showMessageDialog(null, "Goodbye");
+            System.exit(0); // not very clean!
+          }           
+        }
           
-        }while(c != 0);
+      }while(c != '0');
 /* AUTOSAVE TEST!!!!!!!!!*/        
   
 }

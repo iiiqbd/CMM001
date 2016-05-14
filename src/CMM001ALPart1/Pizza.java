@@ -5,6 +5,7 @@
  */
 package CMM001ALPart1;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -25,6 +26,7 @@ public class Pizza {
     private Ingredients toppings;
     private final int SIZE; 
 
+    DecimalFormat dp = new DecimalFormat("0.00");
    /**
  * Constructor for a "build your own" pizza
  * @param s    an int representing the SIZE of the pizza 
@@ -33,9 +35,15 @@ public class Pizza {
  */
     public Pizza(int s, Base b){
         base = b;
-        if(s<7) SIZE=7;
-        else if(s>24) SIZE = 24;
-        else SIZE = s;
+        if(s < 7) {
+          SIZE = 7;
+        }
+        else if(s > 24) {
+          SIZE = 24;
+        }
+        else {
+          SIZE = s;
+        }
         toppings = new Ingredients("Build your own");
     }
     
@@ -48,9 +56,15 @@ public class Pizza {
  * to which two ingredients are added using the addIngredient method
  */    
     public Pizza(int s){
-        if(s<7) SIZE=7;
-        else if(s>24) SIZE = 24;
-        else SIZE = s;
+        if(s < 7) {
+          SIZE = 7;
+        }
+        else if(s > 24) {
+          SIZE = 24;
+        }
+        else {
+          SIZE = s;
+        }
         base = new Base("thin", false);
         toppings = new Ingredients("Marguerita");
         addTopping(new Topping("tomato",true));
@@ -94,14 +108,14 @@ public class Pizza {
     
    /**
  * object method that returns the cost of a pizza. It first uses the base 
- * and toppings to calculate the equivalent cost for a 7-inch pizza, and
+ * and toppings to calculate the equivalent cost of a 7-inch pizza, and
  * scales that cost appropriately if the pizza is larger than 7 inches
  * @return     a double representing the cost of the pizza
  */   
     public double getPrice(){
         double c = Base.getCost() + toppings.getPrice();
-        if(SIZE != 7){//not checking for less than 7- refer
-          c = c*SIZE/7.0;
+        if(SIZE != 7) {
+          c = c * SIZE / 7.0;
         }
         
         return c;
@@ -122,21 +136,24 @@ public class Pizza {
  * @return     a String formed by applying relevant methods to the 
  * object properties of the pizza
  */
+    
 //    @Override
-//    public String toString(){
-//        String message = SIZE + " inch " + toppings.getDescription() + ":\n";
+//    public String toString2(){
+//        String message = SIZE + " inch \"" 
+//        + toppings.getDescription() + "\":\n\t";
 //        message += base.toString();
-//        message +=  toppings.listToppings();
-//        message += " £" + getPrice();
+//        message += ";\n\tList of toppings: " + toppings.listToppings();
+//        message += ";\n\tPrice: £" + dp.format(getPrice()) + ".";
 //        return message;
 //    }
 
-        @Override
     public String toString(){
-        String message = SIZE + " inch \n";
+        String message = "";
+        message += SIZE + " inch: "
+        + toppings.getDescription() + "\":\n\t";        
         message += base.toString();
-        //message +=  toppings.listToppings();
-        //message += " £" + getPrice();
+        message += ";\n\tList of toppings: " + toppings.listToppings();
+        message += ";\n\tPrice: £" + dp.format(getPrice()) + ".";
         return message;
     }
 
@@ -145,21 +162,43 @@ public class Pizza {
   * class-level main method containing some simple test code
   */
     public static void main(String[] args){
-        Pizza p1 = new Pizza(7,new Base("thick",true));
-        Pizza p2 = new Pizza(10,new Base("thin",true));
+        Pizza p1 = new Pizza(7, new Base("thick",true));
+        Pizza p2 = new Pizza(10, new Base("thin",true));
         Pizza p3 = new Pizza(14);
+        Pizza p4 = new Pizza(3, new Base("thin",false));
+        Pizza p5 = new Pizza(28, new Base("thick",true));
+        Pizza p6 = new Pizza(35);
+        Pizza p7 = new Pizza(4);
         
-        p1.addTopping(new Topping("tomato",false));
-        p1.addTopping(new Topping("ham",false));
-        p1.addTopping(new Topping("olives",true));
+        p1.addTopping(new Topping("tomato", false));
+        p1.addTopping(new Topping("ham", false));
+        p1.addTopping(new Topping("olives", true));
         
-        p2.addTopping(new Topping("tomato",false));
-        p2.addTopping(new Topping("cheese",false));
-        p2.addTopping(new Topping("pepperoni",false,2.00));
+        p2.addTopping(new Topping("tomato", false));
+        p2.addTopping(new Topping("cheese", false));
+        p2.addTopping(new Topping("pepperoni", false, 2.00));
         
+        p4.addTopping(new Topping("pepper", true));
+        p4.addTopping(new Topping("carrots", true));
+        p4.addTopping(new Topping("pork", false));
+        p4.addTopping(new Topping("oregami", true, 3.00));
+        p4.addTopping(new Topping("bacon", false));        
+
+        p5.addTopping(new Topping("pepper2", true, 2.20));
+        p5.addTopping(new Topping("carrots2", true, 3.65));
+        p5.addTopping(new Topping("pork2", false, 1.10));
+        p5.addTopping(new Topping("mushrooms", true, 2.00));
+        p5.addTopping(new Topping("bacon2", false, 1.32));
+       
         System.out.println(p1);
         System.out.println(p2);
         System.out.println(p3);
+        System.out.println(p4);
+        System.out.println(p5);        
+        
+//        System.out.println(p1.toString2());
+//        System.out.println(p2.toString2());
+//        System.out.println(p3.toString2());        
         
 
     }
