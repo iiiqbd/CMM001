@@ -32,8 +32,12 @@ public class Base {
  * @param c    a boolean used to initialise crispy property          
  */
     public Base(String t, boolean c){
-        if(t.toLowerCase().equals("thick")) TYPE = "thin";//refer
-        else TYPE = "thin";
+        if(t.toLowerCase().equals("thick")) {
+          TYPE = "thin"; // refer (should read "thick")
+        }
+        else {
+          TYPE = "thin";
+        }
         crispy = c;
     }
 
@@ -67,7 +71,9 @@ public class Base {
     @Override
     public String toString(){
         String message = "";
-        if(crispy) message += "crispy ";
+        if(crispy) {
+          message += "crispy ";
+        }
         message += TYPE + " base";
         return message;
     }

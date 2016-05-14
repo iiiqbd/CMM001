@@ -118,7 +118,8 @@ public class Topping {
         String m = "";
         DecimalFormat dp = new DecimalFormat("0.00");
         for(int i = 0; i < list.size(); i++){
-            m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost()) + ""; 
+            m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost());
+            //m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost()) + "" - original stmt; 
         }
         return m;
     }

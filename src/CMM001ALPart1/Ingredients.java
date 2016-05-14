@@ -35,7 +35,8 @@ public class Ingredients {
     /**
  * Constructor for named Ingredients list filled with Toppings passed as parameter
  * @param n    a String used to select "thin" or "thick" base  
- * @param t    a ArrayList of Topping object to initialise to ingredients         
+ * @param t    a ArrayList of Topping object to initialise to ingredients - original version (o.v.)
+ * //          an ArrayList of Topping objects to initialise the ingredients - modified version (m.v.)
  */
     public Ingredients(String n, ArrayList<Topping> t){
         description = n;
@@ -87,11 +88,12 @@ public class Ingredients {
 
   /**
  * object method that indicates whether ALL Toppings in ingredients list are vegetarian
- * @return     a boolean that is true only of all Toppings are suitable for vegetarians
+ * @return     a boolean that is true only of all Toppings are suitable for vegetarians - o.v.
+ * //          a boolean that is true only if all Toppings are suitable for vegetarians - m.v.
  */    
     public boolean isVegetarian(){
         for(Topping t: ingredients){
-            if(t.isVeg() == false){
+            if(t.isVeg() == false){ // alternatively if(!t.isVeg())
                 return false;   
                 // leaves loop, returning false as soon as any Topping is not vegetarian
             }
@@ -121,7 +123,12 @@ public class Ingredients {
         for(Topping t: ingredients){
             m += t.getName() + ", ";
         }
-        m += "\b\b]";
+        m += "\b\b]"; // \b - backspace
+        /* the 2 backspace keys remove the ',' and 'space' characters from 
+        the the end of the list thus leaving a neat output:
+        so in place of [Ham, Olives, Pepperoni, ] - without backspaces
+        we get         [Ham, Olives, Pepperoni] - with backspaces */
+        
         return m;
     }
 
@@ -135,7 +142,7 @@ public class Ingredients {
     public String toString(){
         String m = description;
         for(int i = 0; i < ingredients.size(); i++){
-            m+="\n[" + i +"] " + ingredients.get(i).getName();
+            m += "\n[" + i + "] " + ingredients.get(i).getName();
         }
         return m;
     }
@@ -147,9 +154,11 @@ public class Ingredients {
  * @return     another Ingredients object (that contains a list of only vegetarian Toppings)
  */    
     public static Ingredients getVegIngredients(Ingredients all){
-        Ingredients subList = new Ingredients("vegitarian toppings");
+        Ingredients subList = new Ingredients("Vegitarian Toppings");
         for(Topping t: all.getIngredients()){
-            if(t.isVeg()) subList.addIngredient(t);
+            if(t.isVeg()) {
+              subList.addIngredient(t);
+            }
         }
         return subList;
     }
@@ -158,17 +167,24 @@ public class Ingredients {
   * class-level main method containing some simple test code
   */
     public static void main(String[] args){
-        Ingredients all = new Ingredients("Available ingredients:");
+        Ingredients all = new Ingredients("Available Ingredients:");
+        
+        //System.out.println(all);
+        
+        all.addIngredient(new Topping("Ham",false));
+        all.addIngredient(new Topping("Olives",true));
+        all.addIngredient(new Topping("Pepperoni",false));
         
         System.out.println(all);
-        
-        all.addIngredient(new Topping("ham",false));
-        all.addIngredient(new Topping("olives",true));
-        all.addIngredient(new Topping("pepperoni",false));
-        
-        System.out.println(all);
+        System.out.println();
         
         Ingredients veg = Ingredients.getVegIngredients(all);
         System.out.println(veg);
+        
+        // testing toString and listToppings methods
+        System.out.println("\nList of all toppings in straight line (testing backspace functionality!)");
+        System.out.println(all.listToppings());
+        System.out.println("\nList of all toppings in multi-line format");
+        System.out.println(all.toString());
     }
 }
