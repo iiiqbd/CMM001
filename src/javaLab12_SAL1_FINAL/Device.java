@@ -115,7 +115,7 @@ public class Device {
     public String toString(){
         String message = NAME;
         message += ", basic cost = " + basiccost;
-        message += ", " + stock + " in stock: ";
+        message += ", " + stock + " in stock";
         return message;
     }
 }

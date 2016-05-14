@@ -1,4 +1,4 @@
-package javaLab13_SAL2_FINAL;
+package SampleA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,25 +126,25 @@ public class Sale {
  * @param   c  a Cashier object reference
  * @param   tList List of Sale objects
  */
-  public static ArrayList<Sale> byCashier(Cashier c, ArrayList<Sale> tList){
-      ArrayList<Sale> cList = new ArrayList<>();
-      for(Sale t: tList){
-          if(t.getStaff().equals(c)) cList.add(t);
-      }
-      return cList;
-  } 
+//  public static ArrayList<Sale> byCashier(Cashier c, ArrayList<Sale> tList){
+//      ArrayList<Sale> cList = new ArrayList<>();
+//      for(Sale t: tList){
+//          if(t.getStaff().equals(c)) cList.add(t);
+//      }
+//      return cList;
+//  } 
  
 
-//public static ArrayList<Sale> byCashier (Cashier c, ArrayList<Sale> saleList) {
-//	ArrayList<Sale> tempList = new ArrayList<>();
-//	for (Sale item : saleList) {
-//		if (c ===) {
-//			tempList.add(item);
-//		}
-//	}
-//	
-//	return tempList;
-//} 
+public static ArrayList<Sale> byCashier (Cashier c, ArrayList<Sale> saleList) {
+	ArrayList<Sale> tempList = new ArrayList<>();
+	for (Sale item : saleList) {
+		if (c.equals(item.getStaff())) {
+			tempList.add(item);
+		}
+	}
+	
+	return tempList;
+} 
   
  /**
  * class-level method that filters List of Sales and returns those 

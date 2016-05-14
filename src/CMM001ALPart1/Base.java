@@ -32,7 +32,7 @@ public class Base {
  * @param c    a boolean used to initialise crispy property          
  */
     public Base(String t, boolean c){
-        if(t.toLowerCase().equals("thick")) TYPE = "thin";
+        if(t.toLowerCase().equals("thick")) TYPE = "thin";//refer
         else TYPE = "thin";
         crispy = c;
     }
@@ -97,7 +97,8 @@ public class Base {
         Base b2 = new Base("thick", false);
         Base b3 = new Base("ThIn", true);
         Base b4 = new Base("thinner", true);
-        
+//        Pizza p = new Pizza(7,b1);
+//        if (p.getPrice)
         System.out.println(b1);
         System.out.println(b2);
         System.out.println(b3);

@@ -1,8 +1,7 @@
-/* Devices.java
+/* Devices.java - Device class encapsulating the properties 
+ *    of all Device objects as defined below.
  * Authors: F. Malik, N. Offorma, U. Egbue, & I. Adiele.
  * Date: 12 April 2016.
- * Purpose: Device class encapsulating the properties of all Device objects
- *   as defined below.
  */
 package CMM001SAL1;
 
@@ -10,7 +9,7 @@ package CMM001SAL1;
 public class Device {
   
   // object-level properties
-  private String NAME; // final!
+  private final String NAME; // final!
   private double basicCost;
   private int stock;
   
@@ -66,7 +65,7 @@ public class Device {
         total += cost256GB;
         break;
       default:
-        total = basicCost;
+        total += 0.0;
         break;
     }
    return total; 
@@ -76,8 +75,13 @@ public class Device {
       @Override annotation to used to hide toString superclass*/
     @Override
   public String toString() {
-   String info = "Device name is " + getName() + ", basic cost = " + basicCost + ", " 
-       + checkStock() + " in stock.";
+   String info =
+     "Device name is "
+     + NAME
+     + ", basic cost = "
+     + basicCost + ", " 
+     + stock
+     + " in stock.";
    return info;
   }  
   

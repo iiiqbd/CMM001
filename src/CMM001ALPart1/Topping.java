@@ -35,7 +35,7 @@ public class Topping {
     }
 
     /**
- * Constructor for Topping object, cost initialised to standardCost
+ * Constructor for Topping object, cost initialised to standardCost // refer
  * @param n    a String used to initialise name property  
  * @param v    a boolean used to initialise VEG property
  * @param c    a double used to initialise cost property

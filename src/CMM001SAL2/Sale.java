@@ -113,7 +113,7 @@ public class Sale {
 //  public static ArrayList<Sale> byCashier(Cashier cashier, ArrayList<Sale> list) {
 //    ArrayList<Sale> sublist = new ArrayList<>();   
 //    for (Sale s : list) {
-//      if (list.equals(cashier.getStaff())) {
+//      if (s.equals(cashier.getStaff())) {
 //        sublistlist.add(s);
 //      }
 //    }
@@ -122,9 +122,9 @@ public class Sale {
   
 
   // class-level method
-  public static ArrayList<Sale> ofFuel(Fuel ftype, ArrayList<Sale> sale1) {
+  public static ArrayList<Sale> ofFuel(Fuel ftype, ArrayList<Sale> sale) {
     ArrayList<Sale> temp1 = new ArrayList<>();  
-    for (Sale item : sale1) {
+    for (Sale item : sale) {
       if (ftype.equals(item.getFuel())) {
         temp1.add(item);
       }

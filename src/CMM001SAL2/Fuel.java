@@ -1,4 +1,4 @@
-/* Fuel.java - Fuel class encapsulating properties of all Fuel objects
+/* Fuel.java - Fuel class encapsulating the properties of all Fuel objects
  * Author: U. Adiele
  * Date: 15 Apr 2016
  */
