@@ -72,7 +72,7 @@ public class Base {
     public String toString(){
         String message = "";
         if(crispy) {
-          message += "crispy ";
+          message += "Crispy ";
         }
         message += TYPE + " base";
         return message;

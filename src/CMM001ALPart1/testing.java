@@ -114,6 +114,7 @@ public class testing {
           }
           
         }while(c != 0);
+/* AUTOSAVE TEST!!!!!!!!!*/        
   
 }
 }

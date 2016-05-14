@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class Pizza {
     
-    // object-level properties of pizza Base object
+    // object-level properties of Pizza object
     private Base base;
     private Ingredients toppings;
     private final int SIZE; 

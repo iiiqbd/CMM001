@@ -55,7 +55,7 @@ public class Topping {
     @Override
     public String toString(){
         String message = "Topping name: " + name;
-        message +=  ", cost: " + cost;
+        message +=  ", cost: £" + cost;
         message +=  ", vegetarian: " + VEG;
         return message;
     }
@@ -116,39 +116,56 @@ public class Topping {
  *              presented in format [0] name £0.75 etc
  */
 
+//    public static String menu(ArrayList<Topping> list){
+//       String m = "";
+//        DecimalFormat dp = new DecimalFormat("0.00");
+//        for(int i = 0; i < list.size(); i++){
+//            m += "\n[" + (i + 1) + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost());
+//            //m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost()) + "" - original stmt; 
+//        }
+//        return m;
+//   }
+    
     public static String menu(ArrayList<Topping> list){
        String m = "";
         DecimalFormat dp = new DecimalFormat("0.00");
-        for(int i = 0; i < list.size(); i++){
-            m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost());
-            //m += "\n[" + i + "] " + list.get(i).getName() + " £" + dp.format(list.get(i).getCost()) + "" - original stmt; 
+        for(Topping item : list){
+            m += "\n[" + (list.indexOf(item) + 1) + "] " + item.getName() + " £" + dp.format(item.getCost()); 
         }
         return m;
-   }
+   }    
   
     /**
   * class-level main method containing some simple test code
   */
- /*   public static void main(String[] args){
+    public static void main(String[] args){
         Topping t1 = new Topping("Ham", false);
         Topping t2 = new Topping("Cheese", true); 
         Topping t3 = new Topping("Pepper", true); 
         Topping t4 = new Topping("Spicy Chicken", false, 1.25); 
         
+        System.out.println("Displaying available toppings");
         System.out.println(t1);
         System.out.println(t2);
         System.out.println(t3);
         System.out.println(t4);
         
-        System.out.println("\nTesting menu class-level method");
-        ArrayList<Topping> testList = new ArrayList<Topping>();
+        System.out.print("\nTesting menu class-level method");
+        ArrayList<Topping> testList = new ArrayList<>();
         testList.add(t1); testList.add(t2); testList.add(t3); testList.add(t4);
         System.out.println(Topping.menu(testList));
+        
+        JOptionPane.showMessageDialog(null,
+          "Displaying available toppings\n"
+          + t1 + "\n" + t2 + "\n" + t3 + "\n" + t4
+          + "\n\nTesting menu class-level method"
+          + Topping.menu(testList)
+        );        
        
         
        
      
         
     }
-    */
+
 }
