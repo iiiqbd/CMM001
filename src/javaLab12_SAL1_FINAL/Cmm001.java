@@ -16,7 +16,7 @@ public class Cmm001 {
      */
     public static void main(String[] args) {
         Staff cashier = null; // possible null-pointer error generator!
-        Staff manager = new Staff("Manager","1234",true);
+        Staff manager = new Staff("Manager", "1234", true);
 
         Sale sale;
         ArrayList<Device> devices = new ArrayList<>();
@@ -35,6 +35,14 @@ public class Cmm001 {
               + " " + devices.get(i).checkStock() 
               + " " + devices.get(i).getCost(32));
         }
+        
+//        for(Device d : devices) {
+//          devicelist += devices.indexOf(d)
+//            + "  " + d.getName() + "\n";
+//          System.out.println(d.getName()
+//            + " " + d.checkStock()
+//            + " " + d.getCost(32)  );
+//        }        
 
         // create DecimalFormat object for displaying cash values to nearest £
         DecimalFormat to2dp = new DecimalFormat("0.00");
@@ -47,18 +55,19 @@ public class Cmm001 {
         String salesRecord = "";
         Staff currentuser = manager;
 
-        // create user menu to interact with Order called order
+        // create user menu to interact with the user
         do{ String menutext = "Current staff member logged in is: "
                 + currentuser.getName() +
                 "\n\nPlease select an option:\n" +
                 "[1] Process a sale\n" +
                 "[2] Check stock\n" +
                 "[3] Add stock\n" +
-                "[4] Display sales of " + currentuser.getName() + "\n" +
+                "[4] Display sales of "
+                + currentuser.getName() + "\n" +
                 "[5] Cashier log in\n" +
                 "[6] Manager log in\n" +
                 "[7] Summarise sales\n\n" +
-                "[0] Exit ";
+                "[0] Exit";
             input = JOptionPane.showInputDialog(menutext);
             choice = input.charAt(0);
 
@@ -79,18 +88,20 @@ public class Cmm001 {
                     }
                     int m = Integer.parseInt(JOptionPane.showInputDialog(
                             "Enter the memory required (32, 64, 128 or 256 GB):"));
-                    if (m!= 64 && m!=128 && m!=256) m=32;
+                    if (m != 64 && m != 128 && m != 256) m = 32;
                     if(devices.get(d).checkStock() > 0){
-                        sale = new Sale(devices.get(d),m);
+                        sale = new Sale(devices.get(d), 
+                          m);
                         currentuser.recordSale(sale);
-                        //devices.get(d).sell();              // why is this not used?
+                        //devices.get(d).sell();
+                        // why is this not used? - already included in Sale object constructor
                         JOptionPane.showMessageDialog(null,
                           devices.get(d).getName() + "  " + m
                             + "GB costing £" + sale.getCost()  );
                     }
                     else{
                         JOptionPane.showMessageDialog(null,
-                          "Sorry insufficient in stock, only "
+                          "Sorry insufficient quantity in stock, only "
                            + devices.get(d).checkStock() + " in stock");
                     }
                     break;
@@ -161,11 +172,13 @@ public class Cmm001 {
                     String checkmanagerid = JOptionPane.showInputDialog(
                             "Enter manager id code: ");
                     if(manager.checkID(checkmanagerid)){
-                        if(currentuser == cashier) salesRecord += cashier.getName()
+                        if(currentuser == cashier) { // just added - check if ok
+                            salesRecord += cashier.getName()
                             + " made " + cashier.getSalesNumber()
                             + " sales totalling £"
                             + to2dp.format(cashier.getSalesValue()) + "\n";
-                        currentuser = manager;
+                            currentuser = manager;
+                        } // just added -  check if ok
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Incorrect manager id!!!");
