@@ -40,6 +40,17 @@ public class Base {
         }
         crispy = c;
     }
+    
+//    public Base(String t, boolean c){
+//        if((t.toUpperCase().charAt(0) + t.toLowerCase().substring(1,4)).equals("Thick")) {
+//          TYPE = "Thick"; // refer (should read "thick")
+//        }
+//        else {
+//          TYPE = "Thin";
+//        }
+//        crispy = c;
+//    }    
+    
 
     /**
  * object method that returns the TYPE of a Base object 

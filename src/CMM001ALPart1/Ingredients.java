@@ -180,7 +180,7 @@ public class Ingredients {
         Ingredients all = new Ingredients("Available Ingredients:");
         
         System.out.println(all
-          + "This list is empty - as \"all\" contains nothing for now\n");
+          + " This list is empty - as \"all\" contains nothing for now\n");
         
         all.addIngredient(new Topping("Ham",false));
         all.addIngredient(new Topping("Olives",true));
@@ -193,9 +193,9 @@ public class Ingredients {
         System.out.println(veg);
         
         // testing toString and listToppings methods
-        System.out.println("List of all toppings in straight line (testing backspace functionality!)");
+        System.out.println("\nList of all toppings in straight line (testing backspace functionality!)");
         System.out.println(all.listToppings());
-        System.out.println("List of all toppings in multi-line format");
+        System.out.println("\nList of all toppings in multi-line format");
         System.out.println(all.toString());
     }
 }
