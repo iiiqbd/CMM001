@@ -19,8 +19,8 @@ public class Ingredients {
  * Constructor for empty and un-named Ingredients list         
  */
     public Ingredients(){
-        description = "";
-        ingredients = new ArrayList<>();
+        description = ""; // description to be supplied by user
+        ingredients = new ArrayList<>(); // list to be filled by user
     }
 
    /**
@@ -28,13 +28,13 @@ public class Ingredients {
  * @param n    a String used to describe this list of ingredients       
  */
     public Ingredients(String n){
-        description = n;
-        ingredients = new ArrayList<>();
+        description = n; // description to be supplied by user
+        ingredients = new ArrayList<>(); // list to be filled by user
     }
 
     /**
  * Constructor for named Ingredients list filled with Toppings passed as parameter
- * @param n    a String used to select "thin" or "thick" base  
+ * @param n    a String used to select "thin" or "thick" base  ??
  * @param t    a ArrayList of Topping object to initialise to ingredients - original version (o.v.)
  * //          an ArrayList of Topping objects to initialise the ingredients - modified version (m.v.)
  */
@@ -93,7 +93,7 @@ public class Ingredients {
  */    
     public boolean isVegetarian(){
         for(Topping t: ingredients){
-            if(t.isVeg() == false){ // alternatively if(!t.isVeg())
+            if(t.isVeg() == false) { // alternatively if(!t.isVeg())
                 return false;   
                 // leaves loop, returning false as soon as any Topping is not vegetarian
             }
@@ -151,7 +151,8 @@ public class Ingredients {
     public String toString(){
         String m = description;
         for (Topping item : ingredients) {
-          m += "\n[" + (ingredients.indexOf(item) + 1) + "] " + item.getName();
+          // (ingredients.indexOf(item) + 1)  ??
+          m += "\n[" + ingredients.indexOf(item) + "] " + item.getName();
         }
         return m;
     }
@@ -196,6 +197,6 @@ public class Ingredients {
         System.out.println("\nList of all toppings in straight line (testing backspace functionality!)");
         System.out.println(all.listToppings());
         System.out.println("\nList of all toppings in multi-line format");
-        System.out.println(all.toString());
+        System.out.println(all);
     }
 }

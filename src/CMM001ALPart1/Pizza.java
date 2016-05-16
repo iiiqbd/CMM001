@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * A Pizza class will be associated with:
  * - an Ingredients object (that in turn contains a name for the pizza style, 
  *    and the list of Toppings on the pizza)
- * - a Base object (representing the properties of the pizza base.
+ * - a Base object (representing the properties of the pizza base.)
  * - a SIZE property that represents the diameter of the base/pizza, 
  *   and which is used to calculate the size
  */

@@ -219,7 +219,7 @@ public class Cmm001 {
                         + salesRecord);
                     break;
 
-                default:
+                default: // code to display when incorrect choice is made
                 {    JOptionPane.showMessageDialog(null,
                             "Sorry, choice not recognised.");
                 }
