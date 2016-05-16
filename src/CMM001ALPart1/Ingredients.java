@@ -147,6 +147,16 @@ public class Ingredients {
 //        return m;
 //    }
     
+//    @Override
+//    public String toString(){
+//        String m = description;
+//        for (Topping item : ingredients) {
+//          // (ingredients.indexOf(item) + 1)  ??
+//          m += "\n[" + ingredients.indexOf(item) + "] " + item.getName();
+//        }
+//        return m;
+//    }
+    
     @Override
     public String toString(){
         String m = description;
@@ -155,7 +165,7 @@ public class Ingredients {
           m += "\n[" + ingredients.indexOf(item) + "] " + item.getName();
         }
         return m;
-    }
+    }    
     
     
    /**
