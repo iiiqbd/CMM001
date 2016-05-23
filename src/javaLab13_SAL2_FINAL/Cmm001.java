@@ -36,7 +36,7 @@ public class Cmm001 {
 
         String fuellist = "" ;
         // can we possibly ask the user to enter 1-3 and process it as 0-2?
-        for(int i = 0; i < fuels.size(); i++){
+        for (int i = 0; i < fuels.size(); i++) {
             fuellist += i + "  " + fuels.get(i).getName() + "\n";
         }
 
@@ -46,7 +46,7 @@ public class Cmm001 {
     // create DecimalFormat object for displaying cash values to nearest £
         DecimalFormat to2dp = new DecimalFormat("0.00");
 
-    // Ceate variables used by menu for user input
+    // Create variables used by menu for user input
 
         String input; // local variable to hold user responses from menu
         char choice; // local variable on which to base switch cases
