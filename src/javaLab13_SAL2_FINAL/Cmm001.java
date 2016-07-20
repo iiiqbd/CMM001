@@ -12,11 +12,11 @@ public class Cmm001 {
 
     public static void main(String[] args) {
 
-    // Create objects representing cashiers at filing station
+    // Create objects representing cashiers at filling station
         // Create an ArrayList of Cashiers to represent today's cashiers
         ArrayList<Cashier> cashiers = new ArrayList<>();
         // Create a Cashier to represent manager
-        Cashier manager = new Cashier("manager","1234");
+        Cashier manager = new Cashier("Manager","1234");
         // a Cashier object to represent cashier currently processing fuel sales
         Cashier currentcashier;
         // Add manager to list of today's cashiers
@@ -38,6 +38,11 @@ public class Cmm001 {
         // can we possibly ask the user to enter 1-3 and process it as 0-2?
         for (int i = 0; i < fuels.size(); i++) {
             fuellist += i + "  " + fuels.get(i).getName() + "\n";
+            
+            System.out.println(fuels.get(i).getName()
+              + ": " + fuels.get(i).getStock()
+              + " litres, £" + fuels.get(i).getPrice()
+              + " per litre.");
         }
 
     // Create objects representing fuel Sales made today
@@ -51,7 +56,7 @@ public class Cmm001 {
         String input; // local variable to hold user responses from menu
         char choice; // local variable on which to base switch cases
 
-    // create user menu to interact with Order called order (?)
+    // create user menu to interact with the user
         do{ String menutext = "Cashier logged in is: "
                 + currentcashier.getName()
                 + "\n\nPlease select an option [1]-[8] or [0] to exit:\n\n"
@@ -74,12 +79,14 @@ public class Cmm001 {
                     do{
                         fuelchoice = Integer.parseInt(JOptionPane.showInputDialog(
                                 "What type of Fuel? Enter [0]-[2]:\n" + fuellist));
-                    }while(fuelchoice < 0 || fuelchoice >= fuels.size());
+                    } while (fuelchoice < 0 || fuelchoice >= fuels.size());
+                    // 
                     Fuel fuel = fuels.get(fuelchoice);
                     double ltrs = Double.parseDouble(JOptionPane.showInputDialog(
                             "Enter number of litres of " + fuel.getName()));
                     boolean d = JOptionPane.showInputDialog(
-                            "Apply discount? [Enter y if yes]:").equals("y");
+                            "Apply discount? [Enter y if yes]:").toLowerCase().equals("y");
+                    // creating new sale object using relevant parameters
                     Sale sale = new Sale(fuel, ltrs, d, currentcashier);
                     if(fuel.getStock() < ltrs){
                         JOptionPane.showMessageDialog(null, "Sorry insufficient "
@@ -113,7 +120,7 @@ public class Cmm001 {
                                 "What type of Fuel is being refilled. "
                                         + "Enter [0]-[2]\n"
                                         + fuellist));
-                    }while(fuelchoice < 0 || fuelchoice >= fuels.size());
+                    } while (fuelchoice < 0 || fuelchoice >= fuels.size());
                     Fuel fuel = fuels.get(fuelchoice);
                     fuel.refill();
                     JOptionPane.showMessageDialog(null, fuel.getName()
@@ -223,6 +230,8 @@ public class Cmm001 {
                 {   String message = "Closing Sales Point \n"
                         + "Have a nice day!";
                     JOptionPane.showMessageDialog(null, message);
+                    System.out.print("\n\nprintSales (helper method) output\n"
+                      + Cmm001.printSales(todaysSales));
                     break;
                 } //end case 0
 
@@ -231,8 +240,10 @@ public class Cmm001 {
                             "Sorry, choice not recognised.");
                 }
             } // end of switch
+
         }while(choice!='0');
-    }
+
+    } // end main method
 
     // helper method?
     private static String printSales(ArrayList<Sale> in){

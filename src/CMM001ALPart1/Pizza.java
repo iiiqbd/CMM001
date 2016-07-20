@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * A Pizza class will be associated with:
  * - an Ingredients object (that in turn contains a name for the pizza style, 
  *    and the list of Toppings on the pizza)
- * - a Base object (representing the properties of the pizza base.
+ * - a Base object (representing the properties of the pizza base.)
  * - a SIZE property that represents the diameter of the base/pizza, 
  *   and which is used to calculate the size
  */
@@ -149,7 +149,7 @@ public class Pizza {
 
     public String toString(){
         String message = "";
-        message += SIZE + " inch: "
+        message += SIZE + " inch: \""
         + toppings.getDescription() + "\":\n\t";        
         message += base.toString();
         message += ";\n\tList of toppings: " + toppings.listToppings();
@@ -158,17 +158,28 @@ public class Pizza {
     }
 
     
+        /* class-level method that loops through all pizzas sold 
+          and determines their total cost */
+        public static double getTotalCost (ArrayList<Pizza> pz) {
+          double total = 0.0;
+          for(Pizza p : pz) {
+            total += p.getPrice();
+          }
+          return total;
+        }    
+    
    /**
   * class-level main method containing some simple test code
   */
     public static void main(String[] args){
+       
         Pizza p1 = new Pizza(7, new Base("thick",true));
         Pizza p2 = new Pizza(10, new Base("thin",true));
         Pizza p3 = new Pizza(14);
         Pizza p4 = new Pizza(3, new Base("thin",false));
         Pizza p5 = new Pizza(28, new Base("thick",true));
-        Pizza p6 = new Pizza(35);
-        Pizza p7 = new Pizza(4);
+        Pizza p6 = new Pizza(16);
+        Pizza p7 = new Pizza(9);
         
         p1.addTopping(new Topping("tomato", false));
         p1.addTopping(new Topping("ham", false));
@@ -194,7 +205,28 @@ public class Pizza {
         System.out.println(p2);
         System.out.println(p3);
         System.out.println(p4);
-        System.out.println(p5);        
+        System.out.println(p5);
+        System.out.println(p6);
+        System.out.println(p7);
+        
+        /* creating a new ArrayList of Pizza objects with which to 
+        determine certain properties of those objects */
+        ArrayList<Pizza> allPizzas = new ArrayList<>();
+
+        /* adding all available Pizza objects to the Pizza
+          ArrayList */        
+        allPizzas.add(p1);
+        allPizzas.add(p2);
+        allPizzas.add(p3);
+        allPizzas.add(p4);
+        allPizzas.add(p5);
+        allPizzas.add(p6);
+        allPizzas.add(p7);
+        
+        DecimalFormat dp = new DecimalFormat("0.00");
+        
+        System.out.println("\nTotal cost of all Pizzas sold today: £" + 
+          dp.format(Pizza.getTotalCost(allPizzas)));
         
 //        System.out.println(p1.toString2());
 //        System.out.println(p2.toString2());
