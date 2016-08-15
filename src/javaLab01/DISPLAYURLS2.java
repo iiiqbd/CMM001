@@ -1,7 +1,7 @@
 package javaLab01;
 
 /*
-* Checking for variable name correctness
+* Checking for class name correctness
 */
 
 public class DISPLAYURLS2

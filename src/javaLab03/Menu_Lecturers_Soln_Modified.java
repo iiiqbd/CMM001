@@ -24,23 +24,23 @@ public class Menu_Lecturers_Soln_Modified {
                "B  toffee    [60p]\n" +
                "C  cookie    [90p]\n" +
                "Please enter your choice of product ");
-        choice = strChoice.charAt(0);
+        choice = strChoice.toUpperCase().charAt(0);
 
         switch(choice){
           case 'A':
-          case 'a':
+          //case 'a':
             itemName = "chocolate";
             itemPrice = 75;
             break;
 
           case 'B':
-          case 'b':
+          //case 'b':
             itemName = "toffee";
             itemPrice = 60;
             break;
 
           case 'C':
-          case 'c':
+          //case 'c':
             itemName = "cookie";
             itemPrice = 90;
             break;
@@ -50,7 +50,7 @@ public class Menu_Lecturers_Soln_Modified {
             itemPrice = 0;
         }
 
-//        if(itemPrice != 0 ){
+        if(itemPrice != 0 ){
           strNumber = JOptionPane.showInputDialog(
                        "How many " + itemName + " do you require ");
           number = Integer.parseInt(strNumber);
@@ -58,11 +58,11 @@ public class Menu_Lecturers_Soln_Modified {
                  "Your order is for " + number + " " +
                  itemName + " and will cost " +
                  number*itemPrice + "p");
-//        }
-//        else{
-//           JOptionPane.showMessageDialog(null,
-//                 "Item code not recognised");
-//        }
+        }
+        else{
+           JOptionPane.showMessageDialog(null,
+                 "Item code not recognised");
+        }
     } //end main
 
 } // end Menu

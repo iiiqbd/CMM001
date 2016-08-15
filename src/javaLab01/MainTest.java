@@ -1,7 +1,7 @@
 package javaLab01;
 
 /*
-Progrm fails to run because main method is not defined properly.
+Program fails to run because main method is not defined properly.
 Should read "main", rather than "Main"
 */
 

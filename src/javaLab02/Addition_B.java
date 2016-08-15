@@ -25,7 +25,7 @@ public class Addition_B
         System.out.print("Enter 2nd no: "); // user prompt
         b = input.nextInt(); // reads second number from user
 
-        // perform division operation and assign result
+        // perform addition operation and assign result
         sum = a + b;
 
         // display result

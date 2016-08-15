@@ -1,6 +1,6 @@
 package javaLab02;
 
-public class TestCode
+public class FloorCeiling
 {
 
    public static void main(String args[]){

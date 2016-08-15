@@ -11,7 +11,7 @@ public class ForLoop_Continue {
 
 		String output = "";
 		int n, sum = 0;
-		for (int i = 0; i < 5; i++ ) {
+		for (int i = 0; i < 2; i++ ) {
 			n = Integer.parseInt(JOptionPane.showInputDialog(
 			"Enter a number:" ));
 			if (n <= 0) {
