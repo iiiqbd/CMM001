@@ -133,14 +133,16 @@ public class Ingredients {
     
 
     public String listToppings() {
-        String m = " [";
-        for(int i = 0; i < ingredients.size(); i++) {          
+        String m = "[";
+        for(int i = 0; i < ingredients.size(); i++) {
+          
           /* simple(r) alternative(s) to m += "\b\b]";  - option 1  - using an if statement */                    
 //          if(i > 0) {
-//              m += ", "; // else {m += "";} - implied but unnecessary, see condtional below
+//              m += ", "; // else {m += "";} - implied but unnecessary, see conditional below
 //          } // end if
           /* simple(r) alternative(s) to m += "\b\b]";  - option 2 – using a conditional */                      
           m += (i > 0) ? ", " : "";
+          
           m += ingredients.get(i).getName();
         } // end for
         m += "]";
