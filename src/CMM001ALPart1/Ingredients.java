@@ -118,19 +118,35 @@ public class Ingredients {
  * @return     a String formed by looping through the ingredients list 
  *              and applying getName to Topping object
  */
-    public String listToppings(){
-        String m = "[";
-        for(Topping t: ingredients){
-            m += t.getName() + ", ";
-        }
-        m += "\b\b]"; // \b - backspace
-        /* the 2 backspace escape xtrs remove the ',' and 'space' characters 
-        from the the end of the list thus leaving a neat output:
-        so in place of [Ham, Olives, Pepperoni, ] - without backspaces
-        we get         [Ham, Olives, Pepperoni] - with backspaces */
-        
+//    public String listToppings(){
+//        String m = "[";
+//        for(Topping t: ingredients){
+//            m += t.getName() + ", ";
+//        }
+//        m += "\b\b]"; // \b - backspace
+//        /* the 2 backspace escape xtrs remove the ',' and 'space' characters 
+//        from the the end of the list thus leaving a neat output:
+//        so in place of [Ham, Olives, Pepperoni, ] - without backspaces
+//        we get         [Ham, Olives, Pepperoni] - with backspaces */        
+//        return m;
+//    }
+    
+
+    public String listToppings() {
+        String m = " [";
+        for(int i = 0; i < ingredients.size(); i++) {          
+          /* simple(r) alternative(s) to m += "\b\b]";  - option 1  - using an if statement */                    
+//          if(i > 0) {
+//              m += ", "; // else {m += "";} - implied but unnecessary, see condtional below
+//          } // end if
+          /* simple(r) alternative(s) to m += "\b\b]";  - option 2 – using a conditional */                      
+          m += (i > 0) ? ", " : "";
+          m += ingredients.get(i).getName();
+        } // end for
+        m += "]";
         return m;
     }
+  
 
    /**
  * object method that lists all Toppings in the list in a multi-line style 
